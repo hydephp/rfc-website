@@ -8,6 +8,9 @@ use App\Helpers\Generics;
 use DateTimeImmutable;
 use Hyde\Markdown\Models\Markdown;
 
+/**
+ * Represent a GitHub Issue, which can be an Issue or a Pull Request.
+ */
 readonly class Issue
 {
     public int $number;
