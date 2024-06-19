@@ -12,4 +12,6 @@ readonly class Issue
 
     public IssueType $type;
     public Status $status;
+
+    public array $comments;
 }
