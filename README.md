@@ -1,24 +1,35 @@
-# RFC Website
+# HydePHP RFC Website
 
-https://rfc.hydephp.com/ development tree route overview
+[Development Tree Route Overview](https://rfc.hydephp.com/)
 
-/ lists all rfc's with statuses (implemented, rejected, stale, etc) (from enum)
-/process lists the process of an rfc (pr/issue in monorepo tagged with rfc (we label rfcs automatically if they have rfc in the title))
-/{rfc} lists the rfc with the given number (from github)
+## Routes
 
-notes:
-website implemented with hydephp as static site on github pages
-site is built nightly with github actions
-rfc numbers are using the github issue number (hence why discussion rfcs are not valid to be considered by the website)
+- `/`
+  Lists all RFCs with their statuses (implemented, rejected, stale, etc.) from an enum.
 
-goals:
-a simple overview of rfs's and their statuses
+- `/process`
+  Lists the process of an RFC (PR/issue in monorepo tagged with RFC; we label RFCs automatically if they have "RFC" in the title).
 
-building: (how it's built)
+- `/{rfc}`
+  Lists the RFC with the given number (sourced from GitHub).
 
-1. get all issues and pull requests from the monorepo
-2. filter out all issues and pull requests that are not labeled with rfc
-3. get the statuses of the rfc's (implemented, rejected, stale, draft, etc)
-4. create index page with all rfc's and their statuses
-5. get body of rfc's from github and its comments (if any)
-6. static process page from markdown
+## Notes
+
+- The website is implemented with HydePHP as a static site on GitHub Pages.
+- The site is built nightly with GitHub Actions.
+- RFC numbers use the GitHub issue number, hence discussion RFCs are not valid to be considered by the website.
+
+## Goals
+
+- Provide a simple overview of RFCs and their statuses.
+
+## Building
+
+1. Retrieve all issues and pull requests from the monorepo.
+2. Filter out all issues and pull requests that are not labeled as RFC.
+3. Determine the statuses of the RFCs (implemented, rejected, stale, draft, etc.).
+4. Create an index page with all RFCs and their statuses.
+5. Fetch the body of RFCs from GitHub and their comments (if any).
+6. Generate a static process page from Markdown.
+
+This revised format should be clearer and more professional.
