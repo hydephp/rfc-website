@@ -56,9 +56,9 @@ class GitHub
     /**
      * Create a raw GitHub Search API request.
      */
-    public static function rawSearch(array $data = []): array
+    public static function rawSearch(string $query): array
     {
-        $url = 'https://github.com/search?q=repo:'.self::REPOSITORY.urlencode(' '.implode(' ', $data));
+        $url = 'https://github.com/search?q='.$query;
 
         return Http::withHeaders([
             'Accept' => 'application/json',
