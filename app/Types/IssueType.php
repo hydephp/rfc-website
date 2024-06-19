@@ -15,11 +15,6 @@ enum IssueType
     case Issue;
 
     /**
-     * A discussion thread
-     */
-    case Discussion;
-
-    /**
      * A pull request
      */
     case PullRequest;

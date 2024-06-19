@@ -13,12 +13,12 @@ enum Status
     case Draft;
 
     /**
-     * The RFC has been implemented. (The PR has been merged, or the issue/discussion has been closed with a resolution.)
+     * The RFC has been implemented. (The PR has been merged, or the issue has been closed with a resolution.)
      */
     case Implemented;
 
     /**
-     * The RFC has been rejected. (The PR has been closed without merging, or the issue/discussion has been closed without resolution.)
+     * The RFC has been rejected. (The PR has been closed without merging, or the issue has been closed without resolution.)
      */
     case Rejected;
 
