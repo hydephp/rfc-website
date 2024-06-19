@@ -23,6 +23,7 @@ class GitHub
     public static function request(string $method, string $uri, array $data = []): PendingRequest
     {
         return Http::withToken(env('GITHUB_TOKEN'))
+            ->withHeaders(['Accept' => 'application/vnd.github.v3+json'])
             ->$method("https://api.github.com/repos/".self::REPOSITORY."/$uri", $data)->throw();
     }
 }
