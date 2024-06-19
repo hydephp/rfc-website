@@ -14,9 +14,8 @@ class Generics
      *
      * @template T of class-string
      *
-     * @param array<T> $array
-     * @param T $type
-     *
+     * @param  array<T>  $array
+     * @param  T  $type
      * @return array<T>
      */
     public static function typeSafeArray(array $array, string $type): array
