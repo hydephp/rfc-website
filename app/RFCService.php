@@ -33,5 +33,20 @@ class RFCService
                 new DateTimeImmutable($issue['updated_at']),
             );
         });
+
+        $pulls = Arr::map($pulls, function (array $pull): Issue {
+            dump($pull['labels']);
+            return new Issue(
+                $pull['number'],
+                $pull['title'],
+                new Markdown($pull['body'] ?? ''),
+                new GitHubUser($pull['user']['login']),
+                IssueType::PullRequest,
+                Status::Draft, // Todo: Determine the status
+                [], // Todo: Get the comments
+                new DateTimeImmutable($pull['created_at']),
+                new DateTimeImmutable($pull['updated_at']),
+            );
+        });
     }
 }
