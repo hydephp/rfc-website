@@ -17,7 +17,7 @@ class IssueList
     /**
      * Create a new IssueList object from an array of Issue objects.
      *
-     * @param array<array-key, Issue> $issues
+     * @param  array<array-key, Issue>  $issues
      */
     public function __construct(array $issues)
     {
