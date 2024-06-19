@@ -11,7 +11,6 @@ readonly class IssueComment
 {
     public GitHubUser $author;
     public Markdown $body;
-
     public DateTimeImmutable $createdAt;
     public DateTimeImmutable $updatedAt;
 
