@@ -14,7 +14,7 @@ readonly class Issue
     public Status $status;
 
     /**
-     * @var array
+     * @var array<array-key, IssueComment>
      */
     public array $comments;
 }
