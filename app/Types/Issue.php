@@ -24,6 +24,11 @@ readonly class Issue
      */
     public array $comments;
 
+    /**
+     * Create a new Issue object.
+     *
+     * @param  array<array-key, IssueComment>  $comments
+     */
     public function __construct(int $number, string $title, Markdown $body, GitHubUser $author, IssueType $type, Status $status, array $comments, DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt) {
         $this->number = $number;
         $this->title = $title;
