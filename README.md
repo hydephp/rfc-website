@@ -17,7 +17,7 @@
 
 - The website is implemented with HydePHP as a static site on GitHub Pages.
 - The site is built nightly with GitHub Actions.
-- RFC numbers use the GitHub issue number, hence discussion RFCs are not valid to be considered by the website.
+- RFC numbers use the GitHub issue number.
 
 ## Goals
 
