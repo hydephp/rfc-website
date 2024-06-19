@@ -6,5 +6,8 @@ namespace App;
 
 class RFCService
 {
-    //
+    public function handle(): void
+    {
+        //
+    }
 }

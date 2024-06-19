@@ -23,6 +23,7 @@ class CallRFCServiceCommand extends Command
     public function handle(): never
     {
         $service = new RFCService();
+        $service->handle();
 
         dd($service);
     }
