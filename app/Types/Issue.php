@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Types;
 
-class Issue
+readonly class Issue
 {
     //
 }
