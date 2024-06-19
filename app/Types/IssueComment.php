@@ -13,4 +13,11 @@ readonly class IssueComment
 
     public DateTimeImmutable $createdAt;
     public DateTimeImmutable $updatedAt;
+
+    public function __construct(string $author, string $body, DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt) {
+        $this->author = $author;
+        $this->body = $body;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
+    }
 }
