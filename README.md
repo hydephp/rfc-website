@@ -31,3 +31,7 @@
 4. Create an index page with all RFCs and their statuses.
 5. Fetch the body of RFCs from GitHub and their comments (if any).
 6. Generate a static process page from Markdown.
+
+## Future
+
+In the future we can render votes using `Yes: 👍 No: 👎 Undecided: 😕` emojis.
