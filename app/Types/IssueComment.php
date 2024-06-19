@@ -14,7 +14,8 @@ readonly class IssueComment
     public DateTimeImmutable $createdAt;
     public DateTimeImmutable $updatedAt;
 
-    public function __construct(GitHubUser $author, Markdown $body, DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt) {
+    public function __construct(GitHubUser $author, Markdown $body, DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt)
+    {
         $this->author = $author;
         $this->body = $body;
         $this->createdAt = $createdAt;

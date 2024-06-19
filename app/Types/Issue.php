@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Types;
 
-use DateTimeImmutable;
 use App\Helpers\Generics;
+use DateTimeImmutable;
 use Hyde\Markdown\Models\Markdown;
 
 readonly class Issue
@@ -29,7 +29,8 @@ readonly class Issue
      *
      * @param  array<array-key, IssueComment>  $comments
      */
-    public function __construct(int $number, string $title, Markdown $body, GitHubUser $author, IssueType $type, Status $status, array $comments, DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt) {
+    public function __construct(int $number, string $title, Markdown $body, GitHubUser $author, IssueType $type, Status $status, array $comments, DateTimeImmutable $createdAt, DateTimeImmutable $updatedAt)
+    {
         $this->number = $number;
         $this->title = $title;
         $this->body = $body;
