@@ -9,7 +9,18 @@ namespace App\Types;
  */
 enum IssueType
 {
+    /**
+     * A classic issue
+     */
     case Issue;
+
+    /**
+     * A discussion thread
+     */
     case Discussion;
+
+    /**
+     * A pull request
+     */
     case PullRequest;
 }
