@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Types;
 
+use App\Helpers\Generics;
+
 readonly class Issue
 {
     public int $number;
@@ -25,6 +27,6 @@ readonly class Issue
         $this->body = $body;
         $this->type = $type;
         $this->status = $status;
-        $this->comments = $comments;
+        $this->comments = Generics::typeSafeArray($comments, IssueComment::class);
     }
 }
