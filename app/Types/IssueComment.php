@@ -6,5 +6,9 @@ namespace App\Types;
 
 readonly class IssueComment
 {
-    //
+    public string $author;
+    public string $body;
+
+    public \DateTimeImmutable $createdAt;
+    public \DateTimeImmutable $updatedAt;
 }
