@@ -7,7 +7,7 @@ namespace App\Types;
 class IssueList
 {
     /**
-     * @var array
+     * @var array<array-key, Issue>
      */
     protected array $issues;
 }
