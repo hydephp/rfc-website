@@ -28,7 +28,7 @@ class GitHub
             return Http::withToken(env('GITHUB_TOKEN'))
                 ->withHeaders([
                     'Accept' => 'application/vnd.github.v3+json',
-                    'User-Agent' => 'HydePHP (https://hydephp.com)',
+                    'User-Agent' => 'HydePHP (hydephp.com)',
                     'X-GitHub-Api-Version' => '2022-11-28',
                 ])
                 ->$method('https://api.github.com/repos/'.self::REPOSITORY."/$uri", $data)
