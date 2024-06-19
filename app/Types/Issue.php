@@ -17,4 +17,14 @@ readonly class Issue
      * @var array<array-key, IssueComment>
      */
     public array $comments;
+
+    public function __construct(int $number, string $title, string $body, IssueType $type, Status $status, array $comments)
+    {
+        $this->number = $number;
+        $this->title = $title;
+        $this->body = $body;
+        $this->type = $type;
+        $this->status = $status;
+        $this->comments = $comments;
+    }
 }
