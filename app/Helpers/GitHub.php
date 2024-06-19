@@ -35,4 +35,21 @@ class GitHub
                 ->throw()->json();
         });
     }
+
+    /**
+     * Create a GitHub Search API request.
+     */
+    public static function search(array $data = []): array
+    {
+        $url = 'https://api.github.com/search/issues?q=repo:'.self::REPOSITORY.urlencode(' '.implode(' ', $data));
+
+        return Http::withToken(env('GITHUB_TOKEN'))
+            ->withHeaders([
+                'Accept' => 'application/vnd.github.v3+json',
+                'User-Agent' => 'HydePHP (hydephp.com)',
+                'X-GitHub-Api-Version' => '2022-11-28',
+            ])
+            ->get($url)
+            ->throw()->json();
+    }
 }
