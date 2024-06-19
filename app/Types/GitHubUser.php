@@ -6,5 +6,5 @@ namespace App\Types;
 
 readonly class GitHubUser
 {
-    //
+    public string $name;
 }
