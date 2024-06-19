@@ -17,6 +17,8 @@ class RFCService
 {
     public function handle(): void
     {
+        $data = GitHub::search(['label:RFC', 'is:issue', 'is:pr']);
+
         $issues = GitHub::request('get', 'issues', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
         $pulls = GitHub::request('get', 'pulls', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
 
