@@ -14,7 +14,7 @@ class Generics
      *
      * @template T of class-string
      *
-     * @param array $array
+     * @param array<T> $array
      * @param T $type
      *
      * @return array<T>
