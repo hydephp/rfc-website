@@ -27,7 +27,7 @@ class GitHub
         return Cache::rememberForever($cacheKey, function () use ($method, $uri, $data): array {
             return Http::withToken(env('GITHUB_TOKEN'))
                 ->withHeaders([
-                    'Accept' => 'application/vnd.github.v3+json'
+                    'Accept' => 'application/vnd.github.v3+json',
                 ])
                 ->$method('https://api.github.com/repos/'.self::REPOSITORY."/$uri", $data)
                 ->throw()->json();
