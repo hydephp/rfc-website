@@ -6,5 +6,7 @@ namespace App\Types;
 
 readonly class Issue
 {
-    //
+    public int $number;
+    public string $title;
+    public string $body;
 }
