@@ -26,7 +26,7 @@ class Generics
         }
 
         $arrayCopy = $array;
-        foreach ($arrayCopy as $key => $value) {
+        foreach ($arrayCopy as $value) {
             $valueType = gettype($value);
             if ($valueType !== $type) {
                 throw new \TypeError("Expected $type, got $valueType");
