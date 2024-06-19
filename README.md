@@ -31,5 +31,3 @@
 4. Create an index page with all RFCs and their statuses.
 5. Fetch the body of RFCs from GitHub and their comments (if any).
 6. Generate a static process page from Markdown.
-
-This revised format should be clearer and more professional.
