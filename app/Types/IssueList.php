@@ -6,5 +6,5 @@ namespace App\Types;
 
 class IssueList
 {
-    //
+    protected array $issues;
 }
