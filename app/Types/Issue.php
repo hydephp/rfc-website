@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace App\Types;
 
 use App\Helpers\Generics;
+use Hyde\Markdown\Models\Markdown;
 
 readonly class Issue
 {
     public int $number;
     public string $title;
-    public string $body;
+    public Markdown $body;
     public GitHubUser $author;
     public IssueType $type;
     public Status $status;
@@ -20,7 +21,7 @@ readonly class Issue
      */
     public array $comments;
 
-    public function __construct(int $number, string $title, string $body, GitHubUser $author, IssueType $type, Status $status, array $comments)
+    public function __construct(int $number, string $title, Markdown $body, GitHubUser $author, IssueType $type, Status $status, array $comments)
     {
         $this->number = $number;
         $this->title = $title;
