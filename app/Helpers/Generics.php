@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Helpers;
 
+use TypeError;
+
 /**
  * Helper class for type-safe generics evaluated at runtime.
  */
@@ -22,14 +24,14 @@ class Generics
     {
         $arrayType = gettype($array);
         if ($arrayType !== 'array') {
-            throw new \TypeError("Expected an array, got $arrayType");
+            throw new TypeError("Expected an array, got $arrayType");
         }
 
         $arrayCopy = $array;
         foreach ($arrayCopy as $value) {
             $valueType = gettype($value);
             if ($valueType !== $type) {
-                throw new \TypeError("Expected $type, got $valueType");
+                throw new TypeError("Expected $type, got $valueType");
             }
         }
 
