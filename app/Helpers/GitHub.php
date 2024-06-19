@@ -9,5 +9,8 @@ namespace App\Helpers;
  */
 class GitHub
 {
-    //
+    /**
+     * The repository name on GitHub.
+     */
+    public const string REPOSITORY = 'hydephp/develop';
 }
