@@ -50,7 +50,7 @@
                     Author: {{ $page->author->name }}
                     (<a href="https://github.com/{{ $page->author->username }}" rel="author nofollow noopener" target="_blank">&commat;{{ $page->author->username }}</a>)
                     @if($page->author->isVerified())
-                        <span title="This user is verified to be part of the HydePHP organization.">✅</span>
+                        <span title="This user is verified to be part of the HydePHP organization." class="no-print">✅</span>
                     @endif
                     <br>
                     <time datetime="{{ $page->created }}">Created: {{ $page->created }}</time>
