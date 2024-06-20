@@ -41,9 +41,8 @@
         }
 
         footer p {
-            margin: 0;
             line-height: 1.5;
-            margin-top: auto;
+            margin: auto 0 0;
         }
 
         .text-center {
