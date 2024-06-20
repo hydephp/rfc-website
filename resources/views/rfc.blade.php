@@ -1,6 +1,30 @@
 @extends('hyde::layouts.app')
 @section('content')
 
+    <style>
+        nav {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+        }
+
+        nav strong a {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+
+    <nav class="no-print">
+        <strong>
+            <a href="{{ route('index') }}">HydePHP RFCs</a>
+        </strong>
+
+        <span>
+            [<a href="{{ route('index') }}">RFC Home</a>]
+        </span>
+    </nav>
+
     <main>
         <article>
             <header>
