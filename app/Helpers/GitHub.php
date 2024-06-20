@@ -15,7 +15,7 @@ class GitHub
     /**
      * The repository name on GitHub.
      */
-    public const string REPOSITORY = 'hydephp/develop';
+    public const string REPOSITORY = 'hyde-staging/rfc-develop-test';
 
     /**
      * Create a GitHub API request.
