@@ -12,6 +12,7 @@ use App\Types\IssueType;
 use App\Types\IssueList;
 use App\Types\GitHubUser;
 use Illuminate\Support\Arr;
+use Hyde\Pages\MarkdownPage;
 use Hyde\Markdown\Models\Markdown;
 
 class RFCService
@@ -68,7 +69,7 @@ class RFCService
     protected function generateRfcPages(): void
     {
         $this->rfcs->issues()->each(function (Issue $issue): void {
-            //
+            $page = new MarkdownPage("rfc/$issue->number");
         });
     }
 }
