@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Types;
 
 use Stringable;
+use App\Helpers\GitHub;
 
 readonly class GitHubUser implements Stringable
 {
@@ -23,5 +24,11 @@ readonly class GitHubUser implements Stringable
     public function __toString(): string
     {
         return $this->username;
+    }
+
+    /** Check if the user is verified to be part of the HydePHP organization. */
+    public function isVerified(): bool
+    {
+        return in_array($this->username, GitHub::VERIFIED_USERS, true);
     }
 }
