@@ -49,6 +49,9 @@
                 <p class="meta">
                     Author: {{ $page->author->name }}
                     (<a href="https://github.com/{{ $page->author->username }}" rel="author nofollow noopener" target="_blank">&commat;{{ $page->author->username }}</a>)
+                    @if($page->author->isVerified())
+                        <span title="This user is verified to be part of the HydePHP organization.">✅</span>
+                    @endif
                     <br>
                     <time datetime="{{ $page->created }}">Created: {{ $page->created }}</time>
                     @if ($page->updated !== $page->created)
