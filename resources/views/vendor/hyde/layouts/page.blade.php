@@ -2,8 +2,10 @@
 @extends('hyde::layouts.app')
 @section('content')
 
-    <article>
-        {{ $content }}
-    </article>
+    <main>
+        <article>
+            {{ $content }}
+        </article>
+    </main>
 
 @endsection
