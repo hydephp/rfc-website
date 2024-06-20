@@ -16,7 +16,7 @@ class RFCPage extends MarkdownPage
     public function __construct(Issue $issue)
     {
         parent::__construct((string) $issue->number, [
-            'title' => $issue->title,
+            'title' => $issue->prettyTitle,
             'author' => $issue->author,
             'created' => $issue->created,
             'updated' => $issue->updated,
