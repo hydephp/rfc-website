@@ -15,6 +15,7 @@ class Generics
      * Type-safe array where the same array will be returned, once the generics have been asserted.
      *
      * @template T of class-string
+     * @throws \TypeError
      *
      * @param  array<T>  $array
      * @param  T  $type
