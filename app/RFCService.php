@@ -31,6 +31,20 @@ class RFCService
         $issues = GitHub::request('get', 'issues', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
         $pulls = GitHub::request('get', 'pulls', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
 
+        $data = Arr::map($data['items'], function (array $item): Issue {
+            return new Issue(
+                $item['number'],
+                $item['title'],
+                new Markdown($item['body']),
+                new GitHubUser($item['user']['login']),
+                isset($item['pull_request']) ? IssueType::PullRequest : IssueType::Issue,
+                Status::Draft, // Todo: Determine the status
+                [], // Todo: Get the comments
+                new DateTimeImmutable($item['created_at']),
+                new DateTimeImmutable($item['updated_at']),
+            );
+        });
+
         $issues = Arr::map($issues, function (array $issue): Issue {
             return new Issue(
                 $issue['number'],
