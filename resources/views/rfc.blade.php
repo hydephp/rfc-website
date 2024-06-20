@@ -47,7 +47,7 @@
             <header>
                 <h1>{{ $title }}</h1>
                 <p class="meta">
-                    Author: {{ $page->author }} <br>
+                    Author: {{ $page->author->name }} (<a href="https://github.com/{{ $page->author->username }}" rel="author nofollow noopener" target="_blank">&commat;{{ $page->author->username }}</a>) <br>
                     <time datetime="{{ $page->created }}">Created: {{ $page->created }}</time>
                     @if ($page->updated !== $page->created)
                         &middot; <time datetime="{{ $page->updated }}">Updated: {{ $page->updated }}</time>
