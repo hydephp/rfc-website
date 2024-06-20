@@ -31,7 +31,7 @@ class GitHub
                     'User-Agent' => 'HydePHP (hydephp.com)',
                     'X-GitHub-Api-Version' => '2022-11-28',
                 ])
-                ->$method('https://api.github.com/repos/'.self::REPOSITORY."/$uri", $data)
+                ->$method("https://api.github.com/$uri", $data)
                 ->throw()->json();
         });
     }
