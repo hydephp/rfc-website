@@ -17,6 +17,8 @@ class GitHub
      */
     public const string REPOSITORY = 'hydephp/develop';
 
+    protected static array $userCache = [];
+
     /**
      * Create a GitHub API request.
      */
