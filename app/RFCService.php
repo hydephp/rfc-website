@@ -32,6 +32,8 @@ class RFCService
         $pulls = GitHub::search(['label:RFC', 'is:pr']);
         // $discussions = GitHub::rawSearch('repo%3Ahydephp%2Fdevelop+rfc&type=discussions');
 
+        $userCache = [];
+
         $issues = Arr::map($issues['items'], function (array $issue): Issue {
             return new Issue(
                 $issue['number'],
