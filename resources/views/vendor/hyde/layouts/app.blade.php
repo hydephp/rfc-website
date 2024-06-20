@@ -47,8 +47,6 @@
     </style>
 </head>
 <body>
-    <main>
-        @yield('content')
-    </main>
+    @yield('content')
 </body>
 </html>
