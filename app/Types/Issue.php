@@ -80,6 +80,7 @@ readonly class Issue
 
     protected function link(): string
     {
-        return route("html/$this->number");
+        return "html/$this->number"; // Compatibility until routes are added
+        // Todo: return route("html/$this->number");
     }
 }
