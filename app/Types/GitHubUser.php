@@ -11,9 +11,13 @@ readonly class GitHubUser implements Stringable
     /** @var string The "login" username */
     public string $username;
 
-    public function __construct(string $username)
+    /** @var string The "pretty" name */
+    public string $name;
+
+    public function __construct(string $username, string $name)
     {
         $this->username = $username;
+        $this->name = $name;
     }
 
     public function __toString(): string

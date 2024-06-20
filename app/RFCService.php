@@ -36,12 +36,12 @@ class RFCService
         $userCache = $this->getUserCache(Arr::unique([...Arr::pluck($issues['items'], 'user.login'), ...Arr::pluck($pulls['items'], 'user.login')]));
         $userCache = Arr::keyBy($userCache, fn ($user) => $user['login']);
 
-        $issues = Arr::map($issues['items'], function (array $issue): Issue {
+        $issues = Arr::map($issues['items'], function (array $issue) use ($userCache): Issue {
             return new Issue(
                 $issue['number'],
                 $issue['title'],
                 new Markdown($issue['body']),
-                new GitHubUser($issue['user']['login']),
+                new GitHubUser($issue['user']['login'], ($userCache[$issue['user']['login']])['name']),
                 IssueType::Issue,
                 Status::Draft, // Todo: Determine the status
                 [], // Todo: Get the comments
@@ -50,12 +50,12 @@ class RFCService
             );
         });
 
-        $pulls = Arr::map($pulls['items'], function (array $pull): Issue {
+        $pulls = Arr::map($pulls['items'], function (array $pull) use ($userCache): Issue {
             return new Issue(
                 $pull['number'],
                 $pull['title'],
                 new Markdown($pull['body'] ?? ''),
-                new GitHubUser($pull['user']['login']),
+                new GitHubUser($pull['user']['login'], ($userCache[$pull['user']['login']])['name']),
                 IssueType::PullRequest,
                 Status::Draft, // Todo: Determine the status
                 [], // Todo: Get the comments
