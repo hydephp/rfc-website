@@ -19,6 +19,8 @@
     }
 
     article {
+        color: #333;
+        text-decoration: none;
         margin-bottom: 20px;
         margin-left: 40px;
     }
@@ -42,20 +44,22 @@
 
     <main>
         @foreach(app(\App\RFCService::class)->getItems()->issues() as $issue)
-            <article>
-                <h2>{{ $issue->prettyTitle }}</h2>
-                <p>
-                    <strong>Author:</strong> {{ $issue->author }}<br>
-                    <strong>Created:</strong> {{ $issue->created }}<br>
-                    @if($issue->updated !== $issue->created)
-                        <strong>Updated:</strong> {{ $issue->updated }}<br>
-                    @endif
-                    <strong>Status:</strong> {{ $issue->status }}<br>
-                </p>
-                <p>
-                    {{ $issue->content }}
-                </p>
-            </article>
+            <a href="{{ $issue->link }}">
+                <article>
+                    <h2>{{ $issue->prettyTitle }}</h2>
+                    <p>
+                        <strong>Author:</strong> {{ $issue->author }}<br>
+                        <strong>Created:</strong> {{ $issue->created }}<br>
+                        @if($issue->updated !== $issue->created)
+                            <strong>Updated:</strong> {{ $issue->updated }}<br>
+                        @endif
+                        <strong>Status:</strong> {{ $issue->status }}<br>
+                    </p>
+                    <p>
+                        {{ $issue->content }}
+                    </p>
+                </article>
+            </a>
         @endforeach
     </main>
 
