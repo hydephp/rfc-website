@@ -23,16 +23,9 @@ class Generics
      */
     public static function typeSafeArray(array $array, string $type): array
     {
-        $arrayType = gettype($array);
-        if ($arrayType !== 'array') {
-            throw new TypeError("Expected an array, got $arrayType");
-        }
-
-        $arrayCopy = $array;
-        foreach ($arrayCopy as $value) {
-            $valueType = gettype($value);
-            if ($valueType !== $type) {
-                throw new TypeError("Expected $type, got $valueType");
+        foreach ($array as $item) {
+            if (! is_a($item, $type)) {
+                throw new TypeError("Expected an array of {$type}, but got an array of " . get_class($item));
             }
         }
 
