@@ -64,4 +64,9 @@ class RFCService
     {
         return $this->rfcs;
     }
+
+    protected function generateRfcPages(): void
+    {
+        //
+    }
 }
