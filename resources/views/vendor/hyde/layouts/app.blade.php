@@ -26,6 +26,20 @@
             font-family: monospace;
         }
 
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
         .text-center {
             text-align: center;
         }
@@ -48,5 +62,21 @@
 </head>
 <body>
     @yield('content')
+
+    <footer class="text-center">
+        <p>
+            Copyright &copy; 2024 HydePHP. All rights reserved.
+        </p>
+        <p class="no-print">
+            Site proudly built with <a href="https://hydephp.com?ref=rfc">HydePHP</a>.
+        </p>
+        <p class="no-print">
+            <small>
+                <a href="{{ route('process') }}">RFC Process</a> &middot;
+                <a href="https://github.com/hydephp/rfc-website">Source Code</a> &middot;
+                <a href="https://github.com/hydephp/rfc-website/issues/new" rel="nofollow">Report Issue</a>
+            </small>
+        </p>
+    </footer>
 </body>
 </html>
