@@ -20,6 +20,11 @@ class RFCService
 
     public function handle(): void
     {
+        $this->rfcs = $this->getRfcListFromGitHub();
+    }
+
+    protected function getRfcListFromGitHub(): IssueList
+    {
         $issues = GitHub::search(['label:RFC', 'is:issue']);
         $pulls = GitHub::search(['label:RFC', 'is:pr']);
         // $discussions = GitHub::rawSearch('repo%3Ahydephp%2Fdevelop+rfc&type=discussions');
@@ -52,8 +57,6 @@ class RFCService
             );
         });
 
-        $data = new IssueList([...$issues, ...$pulls]);
-
-        $this->rfcs = $data;
+        return new IssueList([...$issues, ...$pulls]);
     }
 }
