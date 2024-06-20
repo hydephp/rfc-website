@@ -6,6 +6,7 @@ use Hyde\Hyde;
 use App\RFCService;
 use App\CallRFCServiceCommand;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Cache\Console\ClearCommand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->commands([
             CallRFCServiceCommand::class,
+            ClearCommand::class,
         ]);
     }
 
