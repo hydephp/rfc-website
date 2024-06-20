@@ -17,6 +17,20 @@
         font-size: 1.2em;
         margin: 0;
     }
+
+    article {
+        margin-bottom: 20px;
+        margin-left: 40px;
+    }
+
+    article h2 {
+        font-size: 1.5em;
+        margin: 0;
+    }
+
+    article p {
+        margin: 0;
+    }
 </style>
 
     <header class="text-center">
