@@ -20,6 +20,7 @@ use Hyde\Markdown\Models\Markdown;
 readonly class Issue
 {
     protected final const string DATE_FORMAT = 'Y-m-d H:i:s';
+    protected final const string TITLE_FORMAT = 'RFC #%d: %s';
 
     public int $number;
     public string $title;
@@ -76,7 +77,7 @@ readonly class Issue
 
     protected function prettyTitle(): string
     {
-        return sprintf('RFC #%d: %s', $this->number, $this->trimTitleAffixes());
+        return sprintf(self::TITLE_FORMAT, $this->number, $this->trimTitleAffixes());
     }
 
     protected function link(): Route
