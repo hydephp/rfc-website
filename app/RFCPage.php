@@ -25,4 +25,9 @@ class RFCPage extends MarkdownPage
 
         $this->issue = $issue;
     }
+
+    public function __get(string $name)
+    {
+        return $this->matter($name);
+    }
 }
