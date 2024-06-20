@@ -44,22 +44,22 @@
 
     <main>
         @foreach(app(\App\RFCService::class)->getItems()->issues() as $issue)
-            <a href="{{ $issue->link }}">
-                <article>
+            <article>
+                <a href="{{ $issue->link }}">
                     <h2>{{ $issue->prettyTitle }}</h2>
-                    <p>
-                        <strong>Author:</strong> {{ $issue->author }}<br>
-                        <strong>Created:</strong> {{ $issue->created }}<br>
-                        @if($issue->updated !== $issue->created)
-                            <strong>Updated:</strong> {{ $issue->updated }}<br>
-                        @endif
-                        <strong>Status:</strong> {{ $issue->status }}<br>
-                    </p>
-                    <p>
-                        {{ $issue->content }}
-                    </p>
-                </article>
-            </a>
+                </a>
+                <p>
+                    <strong>Author:</strong> {{ $issue->author }}<br>
+                    <strong>Created:</strong> {{ $issue->created }}<br>
+                    @if($issue->updated !== $issue->created)
+                        <strong>Updated:</strong> {{ $issue->updated }}<br>
+                    @endif
+                    <strong>Status:</strong> {{ $issue->status }}<br>
+                </p>
+                <p>
+                    {{ $issue->content }}
+                </p>
+            </article>
         @endforeach
     </main>
 
