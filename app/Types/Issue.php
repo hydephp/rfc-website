@@ -13,6 +13,7 @@ use Hyde\Markdown\Models\Markdown;
  *
  * @property string $created
  * @property string $updated
+ * @property string $prettyTitle
  */
 readonly class Issue
 {
