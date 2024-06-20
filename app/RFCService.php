@@ -23,6 +23,8 @@ class RFCService
     public function handle(): void
     {
         $this->rfcs = $this->getRfcListFromGitHub();
+
+        $this->generateRfcPages();
     }
 
     protected function getRfcListFromGitHub(): IssueList
