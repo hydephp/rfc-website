@@ -59,4 +59,9 @@ class RFCService
 
         return new IssueList([...$issues, ...$pulls]);
     }
+
+    public function getItems(): IssueList
+    {
+        return $this->rfcs;
+    }
 }
