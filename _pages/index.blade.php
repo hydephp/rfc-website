@@ -26,7 +26,6 @@
         </p>
     </header>
 
-
     <main>
         @foreach(app(\App\RFCService::class)->getItems()->issues() as $issue)
             <article>
