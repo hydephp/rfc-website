@@ -15,10 +15,7 @@
         }
 
         article > pre {
-            background-color: #f8f9fa;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
+            margin-left: 20px;
         }
     </style>
 
