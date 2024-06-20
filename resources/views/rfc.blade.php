@@ -37,6 +37,9 @@
 
         <span>
             [<a href="{{ route('index') }}">RFC Home</a>]
+            <span class="requires-js">
+                [<a href="javascript:window.print();">Print</a>]
+            </span>
         </span>
     </nav>
 
