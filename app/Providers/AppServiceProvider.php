@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Hyde\Hyde;
 use App\RFCService;
+use Illuminate\Support\Arr;
 use App\CallRFCServiceCommand;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\Console\ClearCommand;
@@ -21,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
             CallRFCServiceCommand::class,
             ClearCommand::class,
         ]);
+
+        // Until/unless https://github.com/laravel/framework/pull/51868 is merged
+        Arr::macro('unique', function (array $array): array {
+            return array_unique($array);
+        });
     }
 
     /**
