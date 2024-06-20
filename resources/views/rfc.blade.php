@@ -14,11 +14,19 @@
             text-decoration: none;
         }
 
-        article > pre {
-            background-color: #f8f9fa;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
+        @media screen {
+            article > pre {
+                background-color: #f8f9fa;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+        }
+
+        @media print {
+            article > pre {
+                margin-left: 20px;
+            }
         }
     </style>
 
