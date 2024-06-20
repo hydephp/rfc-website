@@ -34,7 +34,9 @@
                 <p>
                     <strong>Author:</strong> {{ $issue->author }}<br>
                     <strong>Created:</strong> {{ $issue->created }}<br>
-                    <strong>Updated:</strong> {{ $issue->updated }}<br>
+                    @if($issue->updated !== $issue->created)
+                        <strong>Updated:</strong> {{ $issue->updated }}<br>
+                    @endif
                     <strong>Status:</strong> {{ $issue->status }}<br>
                 </p>
                 <p>
