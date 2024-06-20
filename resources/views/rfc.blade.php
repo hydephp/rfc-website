@@ -50,7 +50,11 @@
                     Author: {{ $page->author->name }}
                     (<a href="https://github.com/{{ $page->author->username }}" rel="author nofollow noopener" target="_blank">&commat;{{ $page->author->username }}</a>)
                     @if($page->author->isVerified())
-                        <span title="This user is verified to be part of the HydePHP organization.">✅</span>
+                        <span title="This user is verified to be part of the HydePHP organization.">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="12px">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </span>
                     @endif
                     <br>
                     <time datetime="{{ $page->created }}">Created: {{ $page->created }}</time>
