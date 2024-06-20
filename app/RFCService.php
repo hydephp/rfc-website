@@ -68,6 +68,14 @@ class RFCService
         return $this->rfcs;
     }
 
+    /**
+     * Get a GitHub user by username. We do this separately from Issue fetching to reduce API calls to only run for unique users.
+     */
+    public function getGitHubUserData(string $username): array
+    {
+        return GitHub::request('get', 'users/'.$username);
+    }
+
     protected function generateRfcPages(): void
     {
         $this->rfcs->issues()->each(function (Issue $issue): void {
