@@ -4,6 +4,7 @@
 
 <style>
     header {
+        margin-top: 20px;
         margin-bottom: 20px;
     }
 
@@ -12,17 +13,16 @@
         margin: 0;
     }
 
-    header p[role="doc-subtitle"] {
-        font-size: 1.5em;
+    header p {
+        font-size: 1.2em;
         margin: 0;
     }
 </style>
 
     <header class="text-center">
         <h1>HydePHP RFCs</h1>
-        <p role="doc-subtitle">Request for Comments</p>
-        <p>
-            This website lists all the RFCs for the HydePHP framework.
+        <p role="doc-subtitle">
+            This website lists all the Request for Comments for the HydePHP framework.
         </p>
     </header>
 
