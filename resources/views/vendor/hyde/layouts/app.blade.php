@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ config('hyde.language', 'en') }}">
 <head>
-    @include('hyde::layouts.head')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $page->title() }}</title>
+    @include('hyde::layouts.meta')
 </head>
-<body id="app" class="flex flex-col min-h-screen overflow-x-hidden dark:bg-gray-900 dark:text-white" x-data="{ navigationOpen: false }" x-on:keydown.escape="navigationOpen = false;">
-    @include('hyde::components.skip-to-content-button')
-    @include('hyde::layouts.navigation')
-
+<body>
     <section>
         @yield('content')
     </section>
-
-    @include('hyde::layouts.footer')
-
-    @include('hyde::layouts.scripts')
 </body>
 </html>
