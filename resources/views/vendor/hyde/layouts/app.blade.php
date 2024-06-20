@@ -21,7 +21,8 @@
 
         main {
             margin: 0 auto;
-            max-width: 800px;
+            width: 800px;
+            max-width: 90vw;
             padding: 20px;
             flex: 1;
         }
