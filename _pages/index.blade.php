@@ -9,12 +9,12 @@
     }
 
     header h1 {
-        font-size: 2.5em;
+        font-size: 32px;
         margin: 0;
     }
 
     header p {
-        font-size: 1.2em;
+        font-size: 18px;
         margin: 0;
     }
 
@@ -30,7 +30,7 @@
     }
 
     article h2 {
-        font-size: 1.5em;
+        font-size: 20px;
         margin: 0;
     }
 
