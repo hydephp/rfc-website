@@ -57,6 +57,11 @@
             .no-print {
                 display: none;
             }
+
+            footer {
+                position: relative;
+                background-color: inherit;
+            }
         }
     </style>
 </head>
