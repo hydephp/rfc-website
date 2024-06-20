@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Types;
 
 use App\Helpers\Generics;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class IssueList
@@ -21,7 +22,7 @@ class IssueList
      */
     public function __construct(array $issues)
     {
-        $this->issues = Generics::typeSafeArray($issues, Issue::class);
+        $this->issues = Arr::sort(Generics::typeSafeArray($issues, Issue::class), 'number');
     }
 
     /**
