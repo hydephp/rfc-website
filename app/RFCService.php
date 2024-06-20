@@ -16,6 +16,8 @@ use Hyde\Markdown\Models\Markdown;
 
 class RFCService
 {
+    protected IssueList $rfcs;
+
     public function handle(): void
     {
         $issues = GitHub::search(['label:RFC', 'is:issue']);
@@ -51,5 +53,7 @@ class RFCService
         });
 
         $data = new IssueList([...$issues, ...$pulls]);
+
+        $this->rfcs = $data;
     }
 }
