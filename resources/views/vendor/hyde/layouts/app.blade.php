@@ -30,6 +30,7 @@
             font-weight: bold;
             white-space: pre;
             font-family: monospace;
+            text-wrap: wrap;
         }
 
         footer {
