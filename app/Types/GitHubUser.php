@@ -8,15 +8,15 @@ use Stringable;
 
 readonly class GitHubUser implements Stringable
 {
-    public string $name;
+    public string $username;
 
     public function __construct(string $name)
     {
-        $this->name = $name;
+        $this->username = $name;
     }
 
     public function __toString(): string
     {
-        return $this->name;
+        return $this->username;
     }
 }
