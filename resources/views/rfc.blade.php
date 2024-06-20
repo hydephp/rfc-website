@@ -13,6 +13,13 @@
             color: #333;
             text-decoration: none;
         }
+
+        article > pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
     </style>
 
     <nav class="no-print">
