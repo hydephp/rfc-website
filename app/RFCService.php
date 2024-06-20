@@ -18,6 +18,7 @@ class RFCService
     public function handle(): void
     {
         $data = GitHub::search(['label:RFC', 'is:issue', 'is:pr']);
+        // $discussions = GitHub::rawSearch('repo%3Ahydephp%2Fdevelop+rfc&type=discussions');
 
         $issues = GitHub::request('get', 'issues', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
         $pulls = GitHub::request('get', 'pulls', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
