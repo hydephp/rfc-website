@@ -26,7 +26,6 @@
     }
 
     article a {
-        color: #333;
         text-decoration: none;
     }
 
