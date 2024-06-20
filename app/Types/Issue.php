@@ -16,6 +16,8 @@ use Hyde\Markdown\Models\Markdown;
  */
 readonly class Issue
 {
+    protected final const string DATE_FORMAT = 'Y-m-d H:i:s';
+
     public int $number;
     public string $title;
     public Markdown $body;
@@ -51,11 +53,11 @@ readonly class Issue
     public function __get(string $name)
     {
         if ($name === 'created') {
-            return $this->createdAt->format('Y-m-d H:i:s');
+            return $this->createdAt->format(self::DATE_FORMAT);
         }
 
         if ($name === 'updated') {
-            return $this->updatedAt->format('Y-m-d H:i:s');
+            return $this->updatedAt->format(self::DATE_FORMAT);
         }
 
         return null;
