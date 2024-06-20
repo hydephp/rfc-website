@@ -14,6 +14,7 @@ use Hyde\Markdown\Models\Markdown;
  * @property string $created
  * @property string $updated
  * @property string $prettyTitle
+ * @property string $link
  */
 readonly class Issue
 {
@@ -65,11 +66,20 @@ readonly class Issue
             return $this->prettyTitle();
         }
 
+        if ($name === 'link') {
+            return $this->link();
+        }
+
         return null;
     }
 
     protected function prettyTitle(): string
     {
         return sprintf('%s (#%d)', $this->title, $this->number);
+    }
+
+    protected function link(): string
+    {
+        return route("html/$this->number");
     }
 }
