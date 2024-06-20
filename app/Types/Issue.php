@@ -6,6 +6,7 @@ namespace App\Types;
 
 use App\Helpers\Generics;
 use DateTimeImmutable;
+use Hyde\Support\Models\Route;
 use Hyde\Markdown\Models\Markdown;
 
 /**
@@ -14,7 +15,7 @@ use Hyde\Markdown\Models\Markdown;
  * @property string $created
  * @property string $updated
  * @property string $prettyTitle
- * @property string $link
+ * @property Route $link
  */
 readonly class Issue
 {
@@ -78,10 +79,9 @@ readonly class Issue
         return sprintf('RFC #%d: %s', $this->number, $this->trimTitleAffixes());
     }
 
-    protected function link(): string
+    protected function link(): Route
     {
-        return "rfc/$this->number.html"; // Compatibility until routes are added
-        // Todo: return route("rfc/$this->number");
+         return route("rfc/$this->number");
     }
 
     private function trimTitleAffixes(): string
