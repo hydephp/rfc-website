@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Hyde\Hyde;
 use App\Types\Issue;
 use App\Types\Status;
 use DateTimeImmutable;
@@ -70,6 +71,7 @@ class RFCService
     {
         $this->rfcs->issues()->each(function (Issue $issue): void {
             $page = new MarkdownPage("rfc/$issue->number");
+            Hyde::routes()->addRoute($page->getRoute());
         });
     }
 }
