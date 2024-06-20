@@ -6,13 +6,22 @@ namespace App\Types;
 
 use App\Helpers\Generics;
 use DateTimeImmutable;
+use Hyde\Support\Models\Route;
 use Hyde\Markdown\Models\Markdown;
 
 /**
  * Represent a GitHub Issue, which can be an Issue or a Pull Request.
+ *
+ * @property string $created
+ * @property string $updated
+ * @property string $prettyTitle
+ * @property Route $link
  */
 readonly class Issue
 {
+    protected final const string DATE_FORMAT = 'Y-m-d H:i:s';
+    protected final const string TITLE_FORMAT = 'RFC %d: %s';
+
     public int $number;
     public string $title;
     public Markdown $body;
@@ -43,5 +52,55 @@ readonly class Issue
         $this->comments = Generics::typeSafeArray($comments, IssueComment::class);
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
+    }
+
+    public function __get(string $name)
+    {
+        if ($name === 'created') {
+            return $this->createdAt->format(self::DATE_FORMAT);
+        }
+
+        if ($name === 'updated') {
+            return $this->updatedAt->format(self::DATE_FORMAT);
+        }
+
+        if ($name === 'prettyTitle') {
+            return $this->prettyTitle();
+        }
+
+        if ($name === 'link') {
+            return $this->link();
+        }
+
+        return null;
+    }
+
+    protected function prettyTitle(): string
+    {
+        return sprintf(self::TITLE_FORMAT, $this->number, $this->trimTitleAffixes());
+    }
+
+    protected function link(): Route
+    {
+         return route("rfc/$this->number");
+    }
+
+    private function trimTitleAffixes(): string
+    {
+        $title = $this->title;
+
+        if (str_starts_with($title, 'RFC')) {
+            $title = substr($title, 3);
+        }
+
+        if (str_ends_with($title, 'RFC')) {
+            $title = substr($title, 0, -3);
+        }
+
+        if (str_ends_with($title, '(RFC)')) {
+            $title = substr($title, 0, -5);
+        }
+
+        return trim($title, ' :');
     }
 }

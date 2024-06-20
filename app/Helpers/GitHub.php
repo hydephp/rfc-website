@@ -15,7 +15,16 @@ class GitHub
     /**
      * The repository name on GitHub.
      */
-    public const string REPOSITORY = 'hyde-staging/rfc-develop-test';
+    public const string REPOSITORY = 'hydephp/develop';
+
+    /**
+     * The list of usernames that are verified to be part of the HydePHP organization.
+     *
+     * @var string[]
+     */
+    final public const array VERIFIED_USERS = [
+        'caendesilva',
+    ];
 
     /**
      * Create a GitHub API request.
@@ -31,7 +40,7 @@ class GitHub
                     'User-Agent' => 'HydePHP (hydephp.com)',
                     'X-GitHub-Api-Version' => '2022-11-28',
                 ])
-                ->$method('https://api.github.com/repos/'.self::REPOSITORY."/$uri", $data)
+                ->$method("https://api.github.com/$uri", $data)
                 ->throw()->json();
         });
     }
@@ -42,15 +51,18 @@ class GitHub
     public static function search(array $data = []): array
     {
         $url = 'https://api.github.com/search/issues?q=repo:'.self::REPOSITORY.urlencode(' '.implode(' ', $data));
+        $cacheKey = 'search-'.sha1(date('Y').json_encode($data));
 
-        return Http::withToken(env('GITHUB_TOKEN'))
-            ->withHeaders([
-                'Accept' => 'application/vnd.github.v3+json',
-                'User-Agent' => 'HydePHP (hydephp.com)',
-                'X-GitHub-Api-Version' => '2022-11-28',
-            ])
-            ->get($url)
-            ->throw()->json();
+        return Cache::rememberForever($cacheKey, function () use ($url): array {
+            return Http::withToken(env('GITHUB_TOKEN'))
+                ->withHeaders([
+                    'Accept' => 'application/vnd.github.v3+json',
+                    'User-Agent' => 'HydePHP (hydephp.com)',
+                    'X-GitHub-Api-Version' => '2022-11-28',
+                ])
+                ->get($url)
+                ->throw()->json();
+        });
     }
 
     /**
