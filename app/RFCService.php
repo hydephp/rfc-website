@@ -32,6 +32,8 @@ class RFCService
         $pulls = GitHub::search(['label:RFC', 'is:pr']);
         // $discussions = GitHub::rawSearch('repo%3Ahydephp%2Fdevelop+rfc&type=discussions');
 
+
+        // More efficient way to find the user data not included by search data, using unique users to reduce API calls.
         $usersToCache = Arr::unique([...Arr::pluck($issues['items'], 'user.login'), ...Arr::pluck($pulls['items'], 'user.login')]);
         $userCache = $this->getUserCache($usersToCache);
 
@@ -71,14 +73,6 @@ class RFCService
         return $this->rfcs;
     }
 
-    /**
-     * Get a GitHub user by username. We do this separately from Issue fetching to reduce API calls to only run for unique users.
-     */
-    protected function getGitHubUserData(string $username): array
-    {
-        return GitHub::request('get', 'users/'.$username);
-    }
-
     protected function generateRfcPages(): void
     {
         $this->rfcs->issues()->each(function (Issue $issue): void {
@@ -92,5 +86,10 @@ class RFCService
         return Arr::map($usersToCache, function (string $username): array {
             return $this->getGitHubUserData($username);
         });
+    }
+
+    protected function getGitHubUserData(string $username): array
+    {
+        return GitHub::request('get', 'users/'.$username);
     }
 }
