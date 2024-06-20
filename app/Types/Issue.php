@@ -75,9 +75,18 @@ readonly class Issue
 
     protected function prettyTitle(): string
     {
-        $title = $this->title;
+        return sprintf('RFC #%d: %s', $this->number, $this->trimTitleAffixes());
+    }
 
-        // If title has RFC prefix/suffix, remove it
+    protected function link(): string
+    {
+        return "html/$this->number"; // Compatibility until routes are added
+        // Todo: return route("html/$this->number");
+    }
+
+    private function trimTitleAffixes(): string
+    {
+        $title = $this->title;
 
         if (str_starts_with($title, 'RFC')) {
             $title = substr($title, 3);
@@ -91,14 +100,6 @@ readonly class Issue
             $title = substr($title, 0, -5);
         }
 
-        $title = trim($title, ' :');
-
-        return sprintf('RFC #%d: %s', $this->number, $title);
-    }
-
-    protected function link(): string
-    {
-        return "html/$this->number"; // Compatibility until routes are added
-        // Todo: return route("html/$this->number");
+        return trim($title, ' :');
     }
 }
