@@ -46,7 +46,6 @@ class RFCService
         });
 
         $pulls = Arr::map($pulls, function (array $pull): Issue {
-            dump($pull['labels']);
             return new Issue(
                 $pull['number'],
                 $pull['title'],
