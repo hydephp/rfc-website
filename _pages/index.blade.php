@@ -26,4 +26,22 @@
         </p>
     </header>
 
+
+    <main>
+        @foreach(app(\App\RFCService::class)->getItems()->issues() as $issue)
+            <article>
+                <h2>{{ $issue->title }}</h2>
+                <p>
+                    <strong>Author:</strong> {{ $issue->author }}<br>
+                    <strong>Created:</strong> {{ $issue->created }}<br>
+                    <strong>Updated:</strong> {{ $issue->updated }}<br>
+                    <strong>Status:</strong> {{ $issue->status }}<br>
+                </p>
+                <p>
+                    {{ $issue->content }}
+                </p>
+            </article>
+        @endforeach
+    </main>
+
 @endsection
