@@ -22,7 +22,7 @@ class GitHub
      *
      * @var string[]
      */
-    public const array VERIFIED_USERS = [
+    final public const array VERIFIED_USERS = [
         'caendesilva',
     ];
 
