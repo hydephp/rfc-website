@@ -9,6 +9,7 @@ use App\Types\Status;
 use DateTimeImmutable;
 use App\Helpers\GitHub;
 use App\Types\IssueType;
+use App\Types\IssueList;
 use App\Types\GitHubUser;
 use Illuminate\Support\Arr;
 use Hyde\Markdown\Models\Markdown;
@@ -48,5 +49,7 @@ class RFCService
                 new DateTimeImmutable($pull['updated_at']),
             );
         });
+
+        $data = new IssueList([...$issues, ...$pulls]);
     }
 }
