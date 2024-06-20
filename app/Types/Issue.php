@@ -20,7 +20,7 @@ use Hyde\Markdown\Models\Markdown;
 readonly class Issue
 {
     protected final const string DATE_FORMAT = 'Y-m-d H:i:s';
-    protected final const string TITLE_FORMAT = 'RFC #%d: %s';
+    protected final const string TITLE_FORMAT = 'RFC %d: %s';
 
     public int $number;
     public string $title;
