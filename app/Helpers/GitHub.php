@@ -42,15 +42,18 @@ class GitHub
     public static function search(array $data = []): array
     {
         $url = 'https://api.github.com/search/issues?q=repo:'.self::REPOSITORY.urlencode(' '.implode(' ', $data));
+        $cacheKey = 'search-'.sha1(date('Y').json_encode($data));
 
-        return Http::withToken(env('GITHUB_TOKEN'))
-            ->withHeaders([
-                'Accept' => 'application/vnd.github.v3+json',
-                'User-Agent' => 'HydePHP (hydephp.com)',
-                'X-GitHub-Api-Version' => '2022-11-28',
-            ])
-            ->get($url)
-            ->throw()->json();
+        return Cache::rememberForever($cacheKey, function () use ($url): array {
+            return Http::withToken(env('GITHUB_TOKEN'))
+                ->withHeaders([
+                    'Accept' => 'application/vnd.github.v3+json',
+                    'User-Agent' => 'HydePHP (hydephp.com)',
+                    'X-GitHub-Api-Version' => '2022-11-28',
+                ])
+                ->get($url)
+                ->throw()->json();
+        });
     }
 
     /**
