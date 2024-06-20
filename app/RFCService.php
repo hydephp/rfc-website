@@ -33,7 +33,9 @@ class RFCService
         // $discussions = GitHub::rawSearch('repo%3Ahydephp%2Fdevelop+rfc&type=discussions');
 
         $usersToCache = Arr::unique([...Arr::pluck($issues['items'], 'user.login'), ...Arr::pluck($pulls['items'], 'user.login')]);
-        $userCache = [];
+        $userCache = Arr::map($usersToCache, function (string $username): array {
+            return $this->getGitHubUserData($username);
+        });
 
         $issues = Arr::map($issues['items'], function (array $issue): Issue {
             return new Issue(
