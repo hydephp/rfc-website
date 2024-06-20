@@ -18,6 +18,15 @@ class GitHub
     public const string REPOSITORY = 'hydephp/develop';
 
     /**
+     * The list of usernames that are verified to be part of the HydePHP organization.
+     *
+     * @var string[]
+     */
+    public const array VERIFIED_USERS = [
+        'caendesilva',
+    ];
+
+    /**
      * Create a GitHub API request.
      */
     public static function request(string $method, string $uri, array $data = []): array
