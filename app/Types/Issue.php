@@ -80,8 +80,8 @@ readonly class Issue
 
     protected function link(): string
     {
-        return "html/$this->number"; // Compatibility until routes are added
-        // Todo: return route("html/$this->number");
+        return "rfc/$this->number.html"; // Compatibility until routes are added
+        // Todo: return route("rfc/$this->number");
     }
 
     private function trimTitleAffixes(): string
