@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Hyde\Hyde;
 use App\RFCService;
 use App\CallRFCServiceCommand;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Hyde::kernel()->booted(fn () => $this->app->make(RFCService::class)->handle());
     }
 }
