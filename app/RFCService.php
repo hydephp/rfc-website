@@ -76,7 +76,7 @@ class RFCService
     /**
      * Get a GitHub user by username. We do this separately from Issue fetching to reduce API calls to only run for unique users.
      */
-    public function getGitHubUserData(string $username): array
+    protected function getGitHubUserData(string $username): array
     {
         return GitHub::request('get', 'users/'.$username);
     }
