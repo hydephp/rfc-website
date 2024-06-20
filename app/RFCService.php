@@ -72,7 +72,7 @@ class RFCService
     protected function generateRfcPages(): void
     {
         $this->rfcs->issues()->each(function (Issue $issue): void {
-            $page = new MarkdownPage("rfc/$issue->number");
+            $page = new RFCPage($issue);
             Hyde::routes()->addRoute($page->getRoute());
         });
     }
