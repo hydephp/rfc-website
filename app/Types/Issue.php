@@ -75,7 +75,25 @@ readonly class Issue
 
     protected function prettyTitle(): string
     {
-        return sprintf('%s (#%d)', $this->title, $this->number);
+        $title = $this->title;
+
+        // If title has RFC prefix/suffix, remove it
+
+        if (str_starts_with($title, 'RFC')) {
+            $title = substr($title, 3);
+        }
+
+        if (str_ends_with($title, 'RFC')) {
+            $title = substr($title, 0, -3);
+        }
+
+        if (str_ends_with($title, '(RFC)')) {
+            $title = substr($title, 0, -5);
+        }
+
+        $title = trim($title, ' :');
+
+        return sprintf('RFC #%d: %s', $this->number, $title);
     }
 
     protected function link(): string
