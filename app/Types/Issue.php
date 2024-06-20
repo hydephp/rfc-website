@@ -10,6 +10,9 @@ use Hyde\Markdown\Models\Markdown;
 
 /**
  * Represent a GitHub Issue, which can be an Issue or a Pull Request.
+ *
+ * @property string $created
+ * @property string $updated
  */
 readonly class Issue
 {
@@ -43,5 +46,18 @@ readonly class Issue
         $this->comments = Generics::typeSafeArray($comments, IssueComment::class);
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
+    }
+
+    public function __get(string $name)
+    {
+        if ($name === 'created') {
+            return $this->createdAt->format('Y-m-d H:i:s');
+        }
+
+        if ($name === 'updated') {
+            return $this->updatedAt->format('Y-m-d H:i:s');
+        }
+
+        return null;
     }
 }
