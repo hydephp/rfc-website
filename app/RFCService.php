@@ -67,6 +67,8 @@ class RFCService
 
     protected function generateRfcPages(): void
     {
-        //
+        $this->rfcs->issues()->each(function (Issue $issue): void {
+            //
+        });
     }
 }
