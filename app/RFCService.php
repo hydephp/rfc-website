@@ -17,35 +17,11 @@ class RFCService
 {
     public function handle(): void
     {
-        $data = GitHub::search(['label:RFC', 'is:issue', 'is:pr']);
+        $issues = GitHub::search(['label:RFC', 'is:issue']);
+        $pulls = GitHub::search(['label:RFC', 'is:pr']);
         // $discussions = GitHub::rawSearch('repo%3Ahydephp%2Fdevelop+rfc&type=discussions');
 
-        if ($data['incomplete_results']) {
-            throw new \RuntimeException('The search results are incomplete.');
-        }
-
-        if ($data['total_count'] === 0 || !isset ($data['items']) || count($data['items']) === 0) {
-            throw new \RuntimeException('No RFCs found.');
-        }
-
-        $issues = GitHub::request('get', 'issues', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
-        $pulls = GitHub::request('get', 'pulls', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
-
-        $data = Arr::map($data['items'], function (array $item): Issue {
-            return new Issue(
-                $item['number'],
-                $item['title'],
-                new Markdown($item['body']),
-                new GitHubUser($item['user']['login']),
-                isset($item['pull_request']) ? IssueType::PullRequest : IssueType::Issue,
-                Status::Draft, // Todo: Determine the status
-                [], // Todo: Get the comments
-                new DateTimeImmutable($item['created_at']),
-                new DateTimeImmutable($item['updated_at']),
-            );
-        });
-
-        $issues = Arr::map($issues, function (array $issue): Issue {
+        $issues = Arr::map($issues['items'], function (array $issue): Issue {
             return new Issue(
                 $issue['number'],
                 $issue['title'],
@@ -59,7 +35,7 @@ class RFCService
             );
         });
 
-        $pulls = Arr::map($pulls, function (array $pull): Issue {
+        $pulls = Arr::map($pulls['items'], function (array $pull): Issue {
             return new Issue(
                 $pull['number'],
                 $pull['title'],
