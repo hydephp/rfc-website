@@ -43,7 +43,7 @@
     <main>
         @foreach(app(\App\RFCService::class)->getItems()->issues() as $issue)
             <article>
-                <h2>{{ $issue->title }}</h2>
+                <h2>{{ $issue->prettyTitle }}</h2>
                 <p>
                     <strong>Author:</strong> {{ $issue->author }}<br>
                     <strong>Created:</strong> {{ $issue->created }}<br>

@@ -60,6 +60,15 @@ readonly class Issue
             return $this->updatedAt->format(self::DATE_FORMAT);
         }
 
+        if ($name === 'prettyTitle') {
+            return $this->prettyTitle();
+        }
+
         return null;
+    }
+
+    protected function prettyTitle(): string
+    {
+        return sprintf('%s (#%d)', $this->title, $this->number);
     }
 }
