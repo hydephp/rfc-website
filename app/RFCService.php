@@ -24,6 +24,10 @@ class RFCService
             throw new \RuntimeException('The search results are incomplete.');
         }
 
+        if ($data['total_count'] === 0 || !isset ($data['items']) || count($data['items']) === 0) {
+            throw new \RuntimeException('No RFCs found.');
+        }
+
         $issues = GitHub::request('get', 'issues', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
         $pulls = GitHub::request('get', 'pulls', ['state' => 'all', 'labels' => 'RFC', 'per_page' => 100]);
 
