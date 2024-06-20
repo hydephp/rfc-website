@@ -34,6 +34,7 @@ class RFCService
 
         // More efficient way to find the user data not included by search data, using unique users to reduce API calls.
         $userCache = $this->getUserCache(Arr::unique([...Arr::pluck($issues['items'], 'user.login'), ...Arr::pluck($pulls['items'], 'user.login')]));
+        $userCache = Arr::keyBy($userCache, fn ($user) => $user['login']);
 
         $issues = Arr::map($issues['items'], function (array $issue): Issue {
             return new Issue(
