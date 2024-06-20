@@ -8,6 +8,7 @@ use Stringable;
 
 readonly class GitHubUser implements Stringable
 {
+    /** @var string The "login" username */
     public string $username;
 
     public function __construct(string $name)
