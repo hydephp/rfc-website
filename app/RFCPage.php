@@ -9,11 +9,13 @@ use Hyde\Pages\MarkdownPage;
 
 class RFCPage extends MarkdownPage
 {
+    public static string $outputDirectory = 'rfc';
+
     protected Issue $issue;
 
     public function __construct(Issue $issue)
     {
-        parent::__construct("rfc/$issue->number");
+        parent::__construct((string) $issue->number);
 
         $this->issue = $issue;
     }
