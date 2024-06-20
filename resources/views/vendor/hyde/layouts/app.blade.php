@@ -14,12 +14,16 @@
             line-height: 1.5;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         main {
             margin: 0 auto;
             max-width: 800px;
             padding: 20px;
+            flex: 1;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -32,14 +36,12 @@
             margin-top: 20px;
             padding: 20px;
             background-color: #f8f9fa;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
 
         footer p {
             margin: 0;
             line-height: 1.5;
+            margin-top: auto;
         }
 
         .text-center {
@@ -61,7 +63,6 @@
             }
 
             footer {
-                position: relative;
                 background-color: inherit;
             }
         }
