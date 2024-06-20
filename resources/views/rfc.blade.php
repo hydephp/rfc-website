@@ -17,7 +17,7 @@
         @media screen {
             article > pre {
                 background-color: #f8f9fa;
-                padding: 10px;
+                padding: 10px 15px;
                 overflow-x: auto;
             }
         }
