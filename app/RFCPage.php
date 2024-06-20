@@ -10,6 +10,7 @@ use Hyde\Pages\MarkdownPage;
 class RFCPage extends MarkdownPage
 {
     public static string $outputDirectory = 'rfc';
+    public static string $template = 'rfc';
 
     protected Issue $issue;
 
