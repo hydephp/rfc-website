@@ -58,6 +58,32 @@
             background-color: inherit;
         }
     }
+
+    .rfc-page nav {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        background-color: #f8f9fa;
+    }
+
+    .rfc-page nav strong a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    @media screen {
+        .rfc-page article > pre {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            overflow-x: auto;
+        }
+    }
+
+    @media print {
+        .rfc-page article > pre {
+            margin-left: 20px;
+        }
+    }
 </style>
 <noscript>
     <style>

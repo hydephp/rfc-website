@@ -1,33 +1,5 @@
 @extends('hyde::layouts.app')
 @section('content')
-    <style>
-        nav {
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            background-color: #f8f9fa;
-        }
-
-        nav strong a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        @media screen {
-            article > pre {
-                background-color: #f8f9fa;
-                padding: 10px 15px;
-                overflow-x: auto;
-            }
-        }
-
-        @media print {
-            article > pre {
-                margin-left: 20px;
-            }
-        }
-    </style>
-
     <nav class="no-print">
         <strong>
             <a href="{{ route('index') }}">HydePHP RFCs</a>
