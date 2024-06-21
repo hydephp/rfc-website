@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Helpers;
 
+// See https://github.com/panique/laravel-sass for caching and optimization ideas
 class SCSS
 {
     /**
