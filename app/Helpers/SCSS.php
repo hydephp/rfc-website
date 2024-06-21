@@ -26,6 +26,6 @@ class SCSS
     {
         $file = basename($file, '.scss');
 
-        return $this->compile(file_get_contents(resource_path("scss/{$file}.scss")));
+        return $this->compile(file_get_contents(resource_path("scss/$file.scss")));
     }
 }
