@@ -1,4 +1,4 @@
-@scss('app', true)
+@scss('app')
 
 <noscript>
     <style>
