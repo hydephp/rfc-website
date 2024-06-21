@@ -1,6 +1,5 @@
-<style>
-    @scss('app')
-</style>
+@scss('app', true)
+
 <noscript>
     <style>
         .requires-js {
