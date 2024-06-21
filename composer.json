@@ -29,7 +29,8 @@
         "laravel-zero/framework": "^10.0"
     },
     "require-dev": {
-        "hyde/realtime-compiler": "^3.3"
+        "hyde/realtime-compiler": "^3.3",
+        "scssphp/scssphp": "^1.12"
     },
     "autoload": {
         "psr-4": {
