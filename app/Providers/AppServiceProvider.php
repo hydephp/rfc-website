@@ -39,8 +39,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Hyde::kernel()->booted(fn () => $this->app->make(RFCService::class)->handle());
 
-        Blade::directive('scss', function ($expression) {
-            return "<?php echo app('scss')->file($expression); ?>";
+        Blade::directive('scss', function (string $file): string {
+            return "<?php echo app('scss')->file($file); ?>";
         });
     }
 }
