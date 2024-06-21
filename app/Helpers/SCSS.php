@@ -6,5 +6,8 @@ namespace App\Helpers;
 
 class SCSS
 {
-    //
+    public function compile(string $scss): string
+    {
+        //
+    }
 }
