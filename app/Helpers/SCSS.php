@@ -24,7 +24,10 @@ class SCSS
      */
     public function file(string $file): string
     {
-        // Todo: Trim added file extension
+        if (str_ends_with($file, '.scss')) {
+            $file = substr($file, 0, -5);
+        }
+
         return $this->compile(file_get_contents(resource_path("scss/{$file}.scss")));
     }
 }
