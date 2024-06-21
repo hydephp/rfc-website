@@ -76,6 +76,7 @@ class RFCService
     {
         $this->rfcs->issues()->each(function (Issue $issue): void {
             $page = new RFCPage($issue);
+            Hyde::pages()->addPage($page);
             Hyde::routes()->addRoute($page->getRoute());
         });
     }
