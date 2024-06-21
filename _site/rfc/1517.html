@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HydePHP - RFC 1517: Allow the Blade view to be set using front matter for Markdown pages</title>
+    <link rel="canonical" href="http://localhost/rfc/1517.html">
+<meta name="twitter:title" content="HydePHP - RFC 1517: Allow the Blade view to be set using front matter for Markdown pages">
+<meta property="og:title" content="HydePHP - RFC 1517: Allow the Blade view to be set using front matter for Markdown pages">
+
+
+<link rel="sitemap" href="http://localhost/sitemap.xml" type="application/xml" title="Sitemap">
+<meta name="generator" content="HydePHP v1.6.0">
+<meta property="og:site_name" content="HydePHP">
+
+
+    <style>body {
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  margin: 0 auto;
+  width: 800px;
+  max-width: 90vw;
+  padding: 20px;
+  flex: 1;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  white-space: pre;
+  font-family: monospace;
+  text-wrap: none;
+}
+footer {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #f8f9fa;
+}
+footer p {
+  line-height: 1.5;
+  margin: 4px 0 0;
+}
+footer .links {
+  margin-top: 8px;
+}
+.text-center {
+  text-align: center;
+}
+.rfc-page nav {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+}
+.rfc-page nav strong a {
+  color: #333;
+  text-decoration: none;
+}
+@media print {
+  body {
+    font-size: 10.5pt;
+  }
+  a:link {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+  .no-print {
+    display: none;
+  }
+  footer {
+    background-color: inherit;
+  }
+  .rfc-page article > pre {
+    margin-left: 20px;
+  }
+}
+@media screen {
+  .rfc-page article > pre {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    overflow-x: auto;
+  }
+}
+.index-page header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.index-page header h1 {
+  font-size: 32px;
+  margin: 0;
+}
+.index-page header p {
+  font-size: 18px;
+  margin: 10px 0 0;
+}
+.index-page article {
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+.index-page article a {
+  text-decoration: none;
+}
+.index-page article h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.index-page article p {
+  margin: 0;
+}
+</style>
+
+<noscript>
+    <style>
+        .requires-js {
+            display: none;
+        }
+    </style>
+</noscript>
+</head>
+<body class="rfc-page rfc-page">
+
+    <nav class="no-print">
+        <strong>
+            <a href="../index.html">HydePHP RFCs</a>
+        </strong>
+
+        <span>
+            [<a href="../index.html">RFC Home</a>]
+            <span class="requires-js">
+                [<a onclick="window.print(); return false;" href="">Print</a>]
+            </span>
+        </span>
+    </nav>
+
+    <main>
+        <article>
+            <header>
+                <h1>RFC 1517: Allow the Blade view to be set using front matter for Markdown pages</h1>
+                <p class="meta">
+                    Author: Caen De Silva
+                    (<a href="https://github.com/caendesilva" rel="author nofollow noopener" target="_blank">&commat;caendesilva</a>)
+                                            <span title="This user is verified to be part of the HydePHP organization." class="no-print">✅</span>
+                                        <br>
+                    <time datetime="2024-02-01 15:48:45">Created: 2024-02-01 15:48:45</time>
+                                            &middot; <time datetime="2024-06-19 19:27:58">Updated: 2024-06-19 19:27:58</time>
+                                    </p>
+            </header>
+            <h2>Abstract</h2>
+<h3>Summary</h3>
+<p>This proposal adds a front matter option for Markdown pages to allow a custom Blade template to be used.</p>
+<h3>Usage</h3>
+<pre><code class="language-markdown">---
+extends: my-custom-layout
+---
+
+# Markdown content here
+
+Lorem Ipsum Dolor Sit Amet.
+</code></pre>
+<h3>Implementation</h3>
+<p>Implementation is simple by adding the following method override to the <code>MarkdownPage</code> class.</p>
+<p>This makes the change fully backwards compatible as it null coalesces to the default behaviour.</p>
+<pre><code class="language-php">public function getBladeView(): string
+{
+    return $this-&gt;matter-&gt;get('extends') ?? parent::getBladeView();
+}
+</code></pre>
+<h3>Alternate implementations</h3>
+<p>I initially went with <code>extends</code> as the front matter key, as that matches the Blade syntax. I also see that Jigsaw uses extends. However Jekyll uses <code>layout</code>. We could also support both, same as we support both group and category for navigation data.</p>
+<h3>My thoughts on the matter</h3>
+<p>Something like this was considered when originally creating HydePHP as I did not find it necessary, and it risks adding complexity without value. Additionally, for most sites this is not needed as the various page types have different views that get automatically configured, and an override could make things less obvious.</p>
+<p>Furthermore, the general use of HydePHP means that it's okay that most Markdown-based pages look the same in terms of layout. However, I realize now that I think it could be useful for Markdown pages for sites with a lot of Markdown page content to have this option.</p>
+<p>And considering how surprisingly light this implementation is codewise it comes down to the following: Is this a design pattern we want to encourage? And if the answer is no, is that reason enough not to implement this? Even if something is discouraged we can still have the option for users do things the way they want. For some people this might fit their workflow. And since it's opt-in and doesn't add any unnecessary boilerplate for those who are happy with the defaults I think this feature could be useful.</p>
+<p>I always like to get user feedback, hence why I drafted this as an RFC, paired with a <a href="https://twitter.com/CodeWithCaen/status/1753090055705407905">Twitter poll</a>. In addition to knowing if users are for or against this, I would also love to get feedback on the front matter property name issue mentioned above: if we should use <code>extends</code> or <code>layout</code>.</p>
+<h3>Voting</h3>
+<p>Please vote with an emoji on this post:</p>
+<ul>
+<li>Yes: 👍</li>
+<li>No: 👎</li>
+<li>Undecided: 😕</li>
+</ul>
+<p>Or vote via the <a href="https://twitter.com/CodeWithCaen/status/1753090055705407905">Twitter poll</a>.</p>
+<p>Please also leave feedback in the comments!</p>
+
+        </article>
+    </main>
+
+<footer class="text-center">
+    <p>
+        Copyright &copy; 2024 HydePHP. All rights reserved.
+    </p>
+    <p class="no-print">
+        Site proudly built with <a href="https://hydephp.com?ref=rfc">HydePHP</a>.
+    </p>
+    <p class="no-print">
+        <small>
+            <a href="">RFC Process</a> &middot;
+            <a href="https://github.com/hydephp/rfc-website">Source Code</a> &middot;
+            <a href="https://github.com/hydephp/rfc-website/issues/new" rel="nofollow">Report Issue</a>
+        </small>
+    </p>
+</footer>
+</body>
+</html>
