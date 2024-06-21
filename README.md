@@ -35,3 +35,9 @@
 ## Future
 
 In the future we can render votes using `Yes: 👍 No: 👎 Undecided: 😕` emojis.
+
+## Contributing
+
+If you want to suggest changes and need to run the code locally, you will need to set up a GitHub token
+with read access to discussions, issues, metadata, and pull requests to the `develop` repository.
+This can be made easier by forking that repository and using the token from your fork.
