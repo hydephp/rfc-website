@@ -28,11 +28,14 @@ h1, h2, h3, h4, h5, h6 {
 
 footer {
     margin-top: 20px;
-    padding: 20px;
+    padding: 12px;
     background-color: $background;
     p {
         line-height: 1.5;
-        margin: auto 0 0;
+        margin: 4px 0 0;
+    }
+    .links {
+        margin-top: 8px;
     }
 }
 
