@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Hyde\Hyde;
 use App\RFCService;
+use App\Helpers\SCSS;
 use Illuminate\Support\Arr;
 use App\CallRFCServiceCommand;
 use Illuminate\Support\ServiceProvider;
@@ -17,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(RFCService::class);
+        $this->app->singleton('scss', fn () => new SCSS());
 
         $this->commands([
             CallRFCServiceCommand::class,
