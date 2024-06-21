@@ -7,7 +7,7 @@
     @include('hyde::layouts.meta')
     @include('styles')
 </head>
-<body>
+<body class="{{ strtolower(\Illuminate\Support\Str::before(class_basename($page::class), 'Page')) }}-page">
 
 @yield('content')
 
