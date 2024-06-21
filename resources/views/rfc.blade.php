@@ -1,6 +1,5 @@
 @extends('hyde::layouts.app')
 @section('content')
-
     <style>
         nav {
             padding: 10px;
@@ -62,5 +61,4 @@
             {{ $content }}
         </article>
     </main>
-
 @endsection
