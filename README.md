@@ -10,7 +10,7 @@
 - `/process`
   Lists the process of an RFC (PR/issue in monorepo tagged with RFC; we label RFCs automatically if they have "RFC" in the title).
 
-- `/{rfc}`
+- `/rfc/{number}`
   Lists the RFC with the given number (sourced from GitHub).
 
 ## Notes
