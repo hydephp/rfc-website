@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Helpers;
 
-// See https://github.com/panique/laravel-sass for caching and optimization ideas
 use ScssPhp\ScssPhp\Compiler;
 
 class SCSS
@@ -17,6 +16,8 @@ class SCSS
         $compiler = new Compiler();
 
         // This takes about 5ms on an M2 Mac, which is perfectly acceptable.
+        // See https://github.com/panique/laravel-sass for caching and optimization ideas
+
         return $compiler->compileString($scss)->getCss();
     }
 
