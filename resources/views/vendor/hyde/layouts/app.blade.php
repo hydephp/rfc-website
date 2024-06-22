@@ -35,6 +35,7 @@
     <p class="print-only">
         <small>
             Page generated at {{ date('Y-m-d H:i:s T') }}
+            {{ $page->getCanonicalUrl() }}
         </small>
     </p>
 </footer>
