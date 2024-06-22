@@ -18,15 +18,15 @@
             <header>
                 <h1>{{ $title }}</h1>
                 <p class="meta">
-                    Author: {{ $page->author->name }}
+                    <b>Author:</b> {{ $page->author->name }}
                     (<a href="https://github.com/{{ $page->author->username }}" rel="author nofollow noopener" target="_blank">&commat;{{ $page->author->username }}</a>)
                     @if($page->author->isVerified())
                         <span title="This user is verified to be part of the HydePHP organization." class="no-print">✅</span>
                     @endif
                     <br>
-                    <time datetime="{{ $page->created }}">Created: {{ $page->created }}</time>
+                    <time datetime="{{ $page->created }}"><b>Created:</b> {{ $page->created }}</time>
                     @if ($page->updated !== $page->created)
-                        &middot; <time datetime="{{ $page->updated }}">Updated: {{ $page->updated }}</time>
+                        &middot; <time datetime="{{ $page->updated }}"><b>Updated:</b> {{ $page->updated }}</time>
                     @endif
                 </p>
             </header>
