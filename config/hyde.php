@@ -53,7 +53,7 @@ return [
     |
     */
 
-    'url' => env('SITE_URL', 'http://localhost'),
+    'url' => env('SITE_URL', 'https://rfc.hydephp.com'),
 
     /*
     |--------------------------------------------------------------------------
