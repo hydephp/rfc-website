@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HydePHP - RFC Process</title>
+    <link rel="canonical" href="http://localhost/process.html">
+<meta name="twitter:title" content="HydePHP - RFC Process">
+<meta property="og:title" content="HydePHP - RFC Process">
+
+
+<link rel="sitemap" href="http://localhost/sitemap.xml" type="application/xml" title="Sitemap">
+<meta name="generator" content="HydePHP v1.6.0">
+<meta property="og:site_name" content="HydePHP">
+
+
+    <style>body{font-family:monospace;font-size:14px;line-height:1.5;margin:0;padding:0;display:flex;flex-direction:column;min-height:100vh}main{margin:0 auto;width:800px;max-width:90vw;padding:20px;flex:1}h1,h2,h3,h4,h5,h6{font-weight:bold;white-space:pre;font-family:monospace;text-wrap:wrap}footer{margin-top:20px;padding:12px;background-color:#f8f9fa}footer p{line-height:1.5;margin:4px 0 0}footer .links{margin-top:8px}.text-center{text-align:center}.rfc-page nav{padding:10px;display:flex;justify-content:space-between;background-color:#f8f9fa}.rfc-page nav strong a{color:#333;text-decoration:none}.rfc-page fieldset{padding:0 10px;border:1px solid #ccc;margin:-1px;margin-top:20px}.rfc-page fieldset legend{font-weight:bold}.process-page h1{font-size:32px;margin-bottom:0}.text-muted{opacity:0.75}@media print{body{font-size:10.5pt}a:link{color:inherit;text-decoration:none}a:visited{color:inherit;text-decoration:none}.no-print{display:none !important}footer{background-color:inherit}.rfc-page article>pre{margin-left:20px}fieldset{padding:0;border:none}fieldset legend{display:none}}@media screen{.rfc-page article>pre{background-color:#f8f9fa;padding:10px 15px;overflow-x:auto}}.index-page header{margin-top:20px;margin-bottom:20px}.index-page header h1{font-size:32px;margin:0}.index-page header p{font-size:18px;margin:10px 0 0}.index-page article{color:#333;text-decoration:none;margin-bottom:20px;margin-left:40px}.index-page article a{text-decoration:none}.index-page article h2{font-size:20px;margin:0}.index-page article p{margin:0}</style>
+    <noscript>
+        <style>
+            .requires-js {
+                display: none;
+            }
+        </style>
+    </noscript>
+</head>
+<body class="markdown-page process-page">
+
+
+    <main>
+        <article>
+            <h1>The HydePHP RFC Process</h1>
+<h2>What is an RFC?</h2>
+<p>A Request for Comments (RFC) is a formal document that describes a proposed change or addition to HydePHP.
+It is used to gather feedback from the community and ensure that the proposal is thoroughly vetted before being implemented.
+RFCs are particularly useful for changes that might impact workflows or require significant discussion.</p>
+<h2>When is an RFC Needed?</h2>
+<p>Not all changes to HydePHP require an RFC. Here are some guidelines:</p>
+<ul>
+<li>
+<strong>No RFC Required:</strong> Small features, bug fixes, and new features that are unlikely to disrupt existing workflows can be directly proposed through a Pull Request (PR) or an Issue in the <a href="https://github.com/hydephp/develop">HydePHP monorepo</a>.</li>
+<li>
+<strong>RFC Encouraged:</strong> If the author seeks extensive feedback or the proposal might have a broader impact, it is recommended to mark the proposal as an RFC. This allows the community to provide input and ensures the change is carefully considered.</li>
+</ul>
+<h2>How to Create an RFC</h2>
+<p>To create an RFC, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Create a Pull Request or Issue:</strong></p>
+<ul>
+<li>Go to the <a href="https://github.com/hydephp/develop">HydePHP monorepo</a>.</li>
+<li>Create a new Pull Request or Issue with your proposal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Title and Label:</strong></p>
+<ul>
+<li>Include &quot;RFC&quot; in the title of your Pull Request or Issue.</li>
+<li>The RFC label is typically added automatically if &quot;RFC&quot; is in the title.</li>
+</ul>
+</li>
+<li>
+<p><strong>Gather Feedback:</strong></p>
+<ul>
+<li>Community members can provide feedback through comments.</li>
+<li>Voting on RFCs is informal and can help gauge community support using emojis: <code>👍</code> for yes, <code>👎</code> for no, and <code>😕</code> for undecided.</li>
+</ul>
+</li>
+<li>
+<p><strong>Review and Decision:</strong></p>
+<ul>
+<li>Maintainers will review the RFC and consider community feedback.</li>
+<li>The decision to merge the RFC will weigh community support heavily but is ultimately made by the maintainers.</li>
+</ul>
+</li>
+</ol>
+<h2>Getting Your RFC Listed on the Website</h2>
+<p>To have your RFC listed on the HydePHP RFC website:</p>
+<ol>
+<li>Ensure your Pull Request or Issue is labeled with &quot;RFC&quot;.</li>
+<li>The website will automatically list all RFCs and their statuses (e.g., implemented, rejected, stale, etc.).</li>
+<li>Please note that the website is built nightly using GitHub Actions, so your RFC may not appear immediately.</li>
+</ol>
+<h2>Contribution Guidelines</h2>
+<p>For more detailed information on contributing to HydePHP, including etiquette, procedures, and coding standards, please refer to the <a href="https://github.com/hydephp/develop">monorepo contribution guidelines</a>.</p>
+<hr />
+<h2>Additional Information</h2>
+<p>This RFC process page is part of the <a href="https://rfc.hydephp.com">HydePHP RFC Website</a> which aims to provide a clear overview of all RFCs and their statuses.
+The site is built nightly using GitHub Actions, and the RFC numbers correspond to GitHub issue numbers. If your RFC has not shown up within 24 hours, please reach out to the maintainers.</p>
+<p>Additionally, there are no restrictions who can participate in the RFC process. Everyone is welcome to in good faith propose an RFC, provide constructive feedback, and vote on proposals.</p>
+<p>If you have any questions or need assistance with creating an RFC, please reach out to the community or the maintainers.</p>
+<p>Happy contributing!</p>
+
+        </article>
+    </main>
+
+
+<footer class="text-center">
+    <p>
+        Copyright &copy; 2024 HydePHP. All rights reserved.
+    </p>
+    <p class="no-print">
+        Site proudly built with <a href="https://hydephp.com?ref=rfc">HydePHP</a>.
+    </p>
+    <p class="no-print">
+        <small>
+            <a href="process.html">RFC Process</a> &middot;
+            <a href="https://github.com/hydephp/rfc-website">Source Code</a> &middot;
+            <a href="https://github.com/hydephp/rfc-website/issues/new" rel="nofollow">Report Issue</a>
+        </small>
+    </p>
+</footer>
+</body>
+</html>

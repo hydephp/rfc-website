@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="HydePHP">
 
 
-    <style>body{font-family:monospace;font-size:14px;line-height:1.5;margin:0;padding:0;display:flex;flex-direction:column;min-height:100vh}main{margin:0 auto;width:800px;max-width:90vw;padding:20px;flex:1}h1,h2,h3,h4,h5,h6{font-weight:bold;white-space:pre;font-family:monospace;text-wrap:wrap}footer{margin-top:20px;padding:12px;background-color:#f8f9fa}footer p{line-height:1.5;margin:4px 0 0}footer .links{margin-top:8px}.text-center{text-align:center}.rfc-page nav{padding:10px;display:flex;justify-content:space-between;background-color:#f8f9fa}.rfc-page nav strong a{color:#333;text-decoration:none}.rfc-page fieldset{padding:0 10px;border:1px solid #ccc;margin:-1px;margin-top:20px}.rfc-page fieldset legend{font-weight:bold}.text-muted{opacity:0.75}@media print{body{font-size:10.5pt}a:link{color:inherit;text-decoration:none}a:visited{color:inherit;text-decoration:none}.no-print{display:none !important}footer{background-color:inherit}.rfc-page article>pre{margin-left:20px}fieldset{padding:0;border:none}fieldset legend{display:none}}@media screen{.rfc-page article>pre{background-color:#f8f9fa;padding:10px 15px;overflow-x:auto}}.index-page header{margin-top:20px;margin-bottom:20px}.index-page header h1{font-size:32px;margin:0}.index-page header p{font-size:18px;margin:10px 0 0}.index-page article{color:#333;text-decoration:none;margin-bottom:20px;margin-left:40px}.index-page article a{text-decoration:none}.index-page article h2{font-size:20px;margin:0}.index-page article p{margin:0}</style>
+    <style>body{font-family:monospace;font-size:14px;line-height:1.5;margin:0;padding:0;display:flex;flex-direction:column;min-height:100vh}main{margin:0 auto;width:800px;max-width:90vw;padding:20px;flex:1}h1,h2,h3,h4,h5,h6{font-weight:bold;white-space:pre;font-family:monospace;text-wrap:wrap}footer{margin-top:20px;padding:12px;background-color:#f8f9fa}footer p{line-height:1.5;margin:4px 0 0}footer .links{margin-top:8px}.text-center{text-align:center}.rfc-page nav{padding:10px;display:flex;justify-content:space-between;background-color:#f8f9fa}.rfc-page nav strong a{color:#333;text-decoration:none}.rfc-page fieldset{padding:0 10px;border:1px solid #ccc;margin:-1px;margin-top:20px}.rfc-page fieldset legend{font-weight:bold}.process-page h1{font-size:32px;margin-bottom:0}.text-muted{opacity:0.75}@media print{body{font-size:10.5pt}a:link{color:inherit;text-decoration:none}a:visited{color:inherit;text-decoration:none}.no-print{display:none !important}footer{background-color:inherit}.rfc-page article>pre{margin-left:20px}fieldset{padding:0;border:none}fieldset legend{display:none}}@media screen{.rfc-page article>pre{background-color:#f8f9fa;padding:10px 15px;overflow-x:auto}}.index-page header{margin-top:20px;margin-bottom:20px}.index-page header h1{font-size:32px;margin:0}.index-page header p{font-size:18px;margin:10px 0 0}.index-page article{color:#333;text-decoration:none;margin-bottom:20px;margin-left:40px}.index-page article a{text-decoration:none}.index-page article h2{font-size:20px;margin:0}.index-page article p{margin:0}</style>
     <noscript>
         <style>
             .requires-js {
@@ -51,16 +51,15 @@
                                                     <span title="This user is verified to be part of the HydePHP organization." class="no-print">✅</span>
                                                 <br>
                         <time datetime="2024-02-01 15:48:45" title="2024-02-01 15:48:45"><b>Created:</b> February 1, 2024 <span class="text-muted">15:48 PM</span></time>
-                                                    &middot; <time datetime="2024-06-19 19:27:58" title="2024-06-19 19:27:58"><b>Updated:</b> June 19, 2024 <span class="text-muted">19:27 PM</span></time>
+                                                    &middot; <time datetime="2024-06-22 12:38:48" title="2024-06-22 12:38:48"><b>Updated:</b> June 22, 2024 <span class="text-muted">12:38 PM</span></time>
                                             </p>
                 </fieldset>
             </header>
             <fieldset>
                 <legend>Abstract</legend>
-                <h2>Abstract</h2>
-<h3>Summary</h3>
+                <h2>Summary</h2>
 <p>This proposal adds a front matter option for Markdown pages to allow a custom Blade template to be used.</p>
-<h3>Usage</h3>
+<h2>Usage</h2>
 <pre><code class="language-markdown">---
 extends: my-custom-layout
 ---
@@ -69,7 +68,7 @@ extends: my-custom-layout
 
 Lorem Ipsum Dolor Sit Amet.
 </code></pre>
-<h3>Implementation</h3>
+<h2>Implementation</h2>
 <p>Implementation is simple by adding the following method override to the <code>MarkdownPage</code> class.</p>
 <p>This makes the change fully backwards compatible as it null coalesces to the default behaviour.</p>
 <pre><code class="language-php">public function getBladeView(): string
@@ -77,14 +76,14 @@ Lorem Ipsum Dolor Sit Amet.
     return $this-&gt;matter-&gt;get('extends') ?? parent::getBladeView();
 }
 </code></pre>
-<h3>Alternate implementations</h3>
+<h2>Alternate implementations</h2>
 <p>I initially went with <code>extends</code> as the front matter key, as that matches the Blade syntax. I also see that Jigsaw uses extends. However Jekyll uses <code>layout</code>. We could also support both, same as we support both group and category for navigation data.</p>
-<h3>My thoughts on the matter</h3>
+<h2>My thoughts on the matter</h2>
 <p>Something like this was considered when originally creating HydePHP as I did not find it necessary, and it risks adding complexity without value. Additionally, for most sites this is not needed as the various page types have different views that get automatically configured, and an override could make things less obvious.</p>
 <p>Furthermore, the general use of HydePHP means that it's okay that most Markdown-based pages look the same in terms of layout. However, I realize now that I think it could be useful for Markdown pages for sites with a lot of Markdown page content to have this option.</p>
 <p>And considering how surprisingly light this implementation is codewise it comes down to the following: Is this a design pattern we want to encourage? And if the answer is no, is that reason enough not to implement this? Even if something is discouraged we can still have the option for users do things the way they want. For some people this might fit their workflow. And since it's opt-in and doesn't add any unnecessary boilerplate for those who are happy with the defaults I think this feature could be useful.</p>
 <p>I always like to get user feedback, hence why I drafted this as an RFC, paired with a <a href="https://twitter.com/CodeWithCaen/status/1753090055705407905">Twitter poll</a>. In addition to knowing if users are for or against this, I would also love to get feedback on the front matter property name issue mentioned above: if we should use <code>extends</code> or <code>layout</code>.</p>
-<h3>Voting</h3>
+<h2>Voting</h2>
 <p>Please vote with an emoji on this post:</p>
 <ul>
 <li>Yes: 👍</li>
@@ -107,7 +106,7 @@ Lorem Ipsum Dolor Sit Amet.
     </p>
     <p class="no-print">
         <small>
-            <a href="">RFC Process</a> &middot;
+            <a href="../process.html">RFC Process</a> &middot;
             <a href="https://github.com/hydephp/rfc-website">Source Code</a> &middot;
             <a href="https://github.com/hydephp/rfc-website/issues/new" rel="nofollow">Report Issue</a>
         </small>
