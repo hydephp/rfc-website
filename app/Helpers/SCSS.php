@@ -15,7 +15,7 @@ class SCSS
     {
         $compiler = new Compiler();
 
-        // This takes about 5ms on an M2 Mac, which is perfectly acceptable.
+        // This takes about 5ms on an M2 Mac, and 3ms on Windows, both are perfectly acceptable.
         // See https://github.com/panique/laravel-sass for caching and optimization ideas
 
         return $compiler->compileString($scss)->getCss();
