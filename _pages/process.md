@@ -7,7 +7,8 @@ title: RFC Process
 ## What is an RFC?
 
 A Request for Comments (RFC) is a formal document that describes a proposed change or addition to HydePHP. 
-It is used to gather feedback from the community and ensure that the proposal is thoroughly vetted before being implemented. 
+
+It is used to gather feedback from the community and ensure that the proposal is thoroughly vetted before being implemented.
 RFCs are particularly useful for changes that might impact workflows or require significant discussion.
 
 ## When is an RFC Needed?
@@ -22,26 +23,27 @@ Not all changes to HydePHP require an RFC. Here are some guidelines:
 To create an RFC, follow these steps:
 
 1. **Create a Pull Request or Issue:**
-    - Go to the [HydePHP monorepo](https://github.com/hydephp/develop).
+    - Go to the [HydePHP Develop](https://github.com/hydephp/develop) monorepository.
     - Create a new Pull Request or Issue with your proposal.
 
 2. **Title and Label:**
     - Include "RFC" in the title of your Pull Request or Issue.
-    - The RFC label is typically added automatically if "RFC" is in the title.
+    - The `RFC` label is typically added automatically if "RFC" is in the title.
 
 3. **Gather Feedback:**
     - Community members can provide feedback through comments.
-    - Voting on RFCs is informal and can help gauge community support using emojis: `👍` for yes, `👎` for no, and `😕` for undecided.
+    - Voting on RFCs is informal and can help gauge community support using emojis:
+    - Vote `👍` for yes, `👎` for no, and `😕` for undecided.
 
 4. **Review and Decision:**
-    - Maintainers will review the RFC and consider community feedback.
+    - Maintainers will review the RFC and consider community feedback, technical feasibility, and alignment with project goals.
     - The decision to merge the RFC will weigh community support heavily but is ultimately made by the maintainers.
 
 ## Getting Your RFC Listed on the Website
 
-To have your RFC listed on the HydePHP RFC website:
+To have your RFC listed on the HydePHP RFC website (rfc.hydephp.com), please follow these steps:
 
-1. Ensure your Pull Request or Issue is labeled with "RFC".
+1. Ensure your monorepo Pull Request or Issue is labeled with "RFC".
 2. The website will automatically list all RFCs and their statuses (e.g., implemented, rejected, stale, etc.).
 3. Please note that the website is built nightly using GitHub Actions, so your RFC may not appear immediately.
 
@@ -58,7 +60,5 @@ The site is built nightly using GitHub Actions, and the RFC numbers correspond t
 
 Additionally, there are no restrictions who can participate in the RFC process. Everyone is welcome to in good faith propose an RFC, provide constructive feedback, and vote on proposals.
 
-If you have any questions or need assistance with creating an RFC, please reach out to the community or the maintainers.
-
-Happy contributing!
+If you have any questions or need assistance with creating an RFC, please reach out to the community or the maintainers. **Happy contributing!**
 

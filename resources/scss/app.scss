@@ -73,6 +73,21 @@ footer {
         font-size: 32px;
         margin-bottom: 0;
     }
+
+    main {
+        width: 900px;
+    }
+
+    li {
+        p {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    }
 }
 
 .text-muted {
