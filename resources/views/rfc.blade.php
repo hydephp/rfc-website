@@ -24,9 +24,9 @@
                         <span title="This user is verified to be part of the HydePHP organization." class="no-print">✅</span>
                     @endif
                     <br>
-                    <time datetime="{{ $page->created }}"><b>Created:</b> {{ $page->formatDate($page->created) }}</time>
+                    <time datetime="{{ $page->created }}" title="{{ $page->created }}"><b>Created:</b> {{ $page->formatDate($page->created) }}</time>
                     @if ($page->updated !== $page->created)
-                        &middot; <time datetime="{{ $page->updated }}"><b>Updated:</b> {{ $page->formatDate($page->updated) }}</time>
+                        &middot; <time datetime="{{ $page->updated }}" title="{{ $page->updated }}"><b>Updated:</b> {{ $page->formatDate($page->updated) }}</time>
                     @endif
                 </p>
             </header>
