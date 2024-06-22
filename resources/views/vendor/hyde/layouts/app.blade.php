@@ -39,5 +39,14 @@
         </small>
     </p>
 </footer>
+<style>
+    @print {
+        size: a4 portrait;
+
+        @top-right {
+            content: "Page " counter(pageNumber);
+        }
+    }
+</style>
 </body>
 </html>
