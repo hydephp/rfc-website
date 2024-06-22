@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Helpers;
 
 use ScssPhp\ScssPhp\Compiler;
+use ScssPhp\ScssPhp\OutputStyle;
 
 class SCSS
 {
@@ -14,6 +15,7 @@ class SCSS
     public function compile(string $scss): string
     {
         $compiler = new Compiler();
+        $compiler->setOutputStyle(OutputStyle::COMPRESSED);
 
         // This takes about 5ms on an M2 Mac, and 3ms on Windows, both are perfectly acceptable.
         // See https://github.com/panique/laravel-sass for caching and optimization ideas
