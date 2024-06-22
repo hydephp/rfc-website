@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Types\Issue;
 use App\Types\GitHubUser;
 use Hyde\Pages\MarkdownPage;
+use Illuminate\Support\HtmlString;
 
 /**
  * @property-read string $title
@@ -37,5 +38,10 @@ class RFCPage extends MarkdownPage
     public function __get(string $name)
     {
         return $this->matter($name);
+    }
+
+    public function formatDate(Carbon $carbon): HtmlString
+    {
+        return new HtmlString($carbon->format('Y-m-d H:i:s'));
     }
 }
