@@ -32,6 +32,11 @@
             <a href="https://github.com/hydephp/rfc-website/issues/new" rel="nofollow">Report Issue</a>
         </small>
     </p>
+    <p class="print-only">
+        <small>
+            Page generated at {{ date('Y-m-d H:i:s T') }}
+        </small>
+    </p>
 </footer>
 </body>
 </html>
