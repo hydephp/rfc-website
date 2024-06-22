@@ -8,7 +8,7 @@
 
         <span>
             [<a href="{{ route('index') }}">RFC Home</a>]
-            [<a href="https://hydephp.com?ref=rfc">HydePHP</a>]
+            [<a href="https://hydephp.com?ref=rfc">HydePHP.com</a>]
         </span>
     </nav>
 
