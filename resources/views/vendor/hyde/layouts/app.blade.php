@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $page->title() }}</title>
     @include('hyde::layouts.meta')
-    @include('styles')
+    @scss('app')
+    <noscript>
+        <style>
+            .requires-js {
+                display: none;
+            }
+        </style>
+    </noscript>
 </head>
 <body class="{{ strtolower(\Illuminate\Support\Str::before(class_basename($page::class), 'Page')) }}-page {{ $page::$outputDirectory ?: $page->identifier }}-page">
 
