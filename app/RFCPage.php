@@ -21,7 +21,7 @@ class RFCPage extends MarkdownPage
     public static string $outputDirectory = 'rfc';
     public static string $template = 'rfc';
 
-    protected Issue $issue;
+    public readonly Issue $issue;
 
     public function __construct(Issue $issue)
     {
