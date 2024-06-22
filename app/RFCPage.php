@@ -42,6 +42,6 @@ class RFCPage extends MarkdownPage
 
     public function formatDate(Carbon $carbon): HtmlString
     {
-        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>',$carbon->format('F j, Y'), $carbon->format('G:i A')));
+        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>',$carbon->format('F j, Y'), $carbon->format('H:i A')));
     }
 }
