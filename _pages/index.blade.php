@@ -1,6 +1,16 @@
 @extends('hyde::layouts.app')
 @section('content')
 @php($title = "RFCs")
+    <nav class="no-print">
+        <strong>
+            <a href="{{ route('index') }}">HydePHP RFCs</a>
+        </strong>
+
+        <span>
+            [<a href="{{ route('index') }}">RFC Home</a>]
+        </span>
+    </nav>
+
     <header class="text-center">
         <h1>HydePHP RFCs</h1>
         <p role="doc-subtitle">

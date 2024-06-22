@@ -43,20 +43,20 @@ footer {
     text-align: center;
 }
 
-.rfc-page {
-    nav {
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        background-color: $background;
-        strong {
-            a {
-                color: #333;
-                text-decoration: none;
-            }
+nav {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: $background;
+    strong {
+        a {
+            color: #333;
+            text-decoration: none;
         }
     }
+}
 
+.rfc-page {
     fieldset {
         padding: 0 10px;
         border: 1px solid #ccc;
