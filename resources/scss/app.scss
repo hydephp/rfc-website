@@ -56,6 +56,16 @@ footer {
             }
         }
     }
+
+    fieldset {
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        margin: -1px;
+        margin-top: 20px;
+        legend {
+            font-weight: bold;
+        }
+    }
 }
 
 .text-muted {
@@ -95,6 +105,14 @@ footer {
         }
     }
 
+    fieldset {
+        padding: 0;
+        border: none;
+
+        legend {
+            display: none;
+        }
+    }
 }
 
 @media screen {
