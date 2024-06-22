@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Carbon\Carbon;
 use App\Types\Issue;
 use App\Types\GitHubUser;
 use Hyde\Pages\MarkdownPage;
@@ -11,8 +12,8 @@ use Hyde\Pages\MarkdownPage;
 /**
  * @property-read string $title
  * @property-read GitHubUser $author
- * @property-read string $created
- * @property-read string $updated
+ * @property-read Carbon $created
+ * @property-read Carbon $updated
  */
 class RFCPage extends MarkdownPage
 {
@@ -26,8 +27,8 @@ class RFCPage extends MarkdownPage
         parent::__construct((string) $issue->number, [
             'title' => $issue->prettyTitle,
             'author' => $issue->author,
-            'created' => $issue->created,
-            'updated' => $issue->updated,
+            'created' => Carbon::parse($issue->created),
+            'updated' => Carbon::parse($issue->updated),
         ], $issue->body);
 
         $this->issue = $issue;
