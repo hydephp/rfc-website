@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Types;
 
+use App\Helpers\GitHub;
 use App\Helpers\Generics;
 use DateTimeImmutable;
 use Hyde\Support\Models\Route;
@@ -73,6 +74,14 @@ readonly class Issue
         }
 
         return null;
+    }
+
+    /**
+     * Get the GitHub URL for this issue.
+     */
+    public function github(): string
+    {
+        return 'https://github.com/'.GitHub::REPOSITORY.'/issues/'.$this->number;
     }
 
     protected function prettyTitle(): string
