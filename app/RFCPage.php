@@ -5,8 +5,15 @@ declare(strict_types=1);
 namespace App;
 
 use App\Types\Issue;
+use App\Types\GitHubUser;
 use Hyde\Pages\MarkdownPage;
 
+/**
+ * @property-read string $title
+ * @property-read GitHubUser $author
+ * @property-read string $created
+ * @property-read string $updated
+ */
 class RFCPage extends MarkdownPage
 {
     public static string $outputDirectory = 'rfc';
