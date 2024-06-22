@@ -6,7 +6,6 @@ use Hyde\Hyde;
 use App\RFCService;
 use App\Helpers\SCSS;
 use Illuminate\Support\Arr;
-use App\CallRFCServiceCommand;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\Console\ClearCommand;
@@ -22,7 +21,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('scss', fn () => new SCSS());
 
         $this->commands([
-            CallRFCServiceCommand::class,
             ClearCommand::class,
         ]);
 
