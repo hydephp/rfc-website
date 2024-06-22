@@ -34,7 +34,7 @@
     </p>
     <p class="print-only">
         <small>
-            Page generated at {{ date('Y-m-d H:i:s T') }}
+            Page generated at {{ date('Y-m-d H:i:s T') }}<br>
             {{ $page->getCanonicalUrl() }}
         </small>
     </p>
