@@ -7,6 +7,7 @@
 
         <span>
             [<a href="{{ route('index') }}">RFC Home</a>]
+            [<a href="{{ $page->issue->github() }}">GitHub</a>]
             <span class="requires-js">
                 [<a onclick="window.print(); return false;" href="">Print</a>]
             </span>
