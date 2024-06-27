@@ -32,6 +32,7 @@
                         <strong>Updated:</strong> {{ $issue->updated }}<br>
                     @endif
                     <strong>Status:</strong> {{ $issue->status }}<br>
+                    <strong>Type:</strong> {{ $issue->type }}<br>
                 </p>
                 <p>
                     {{ $issue->content }}
