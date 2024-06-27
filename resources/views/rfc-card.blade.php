@@ -14,7 +14,7 @@
 
                     </td>
                     <td>
-                        <strong>Source:</strong> <a href="{{ $issue->github() }}">{{ $issue->type }} #{{ $issue->number }}</a>
+                        <strong>Source:</strong> <a href="{{ $issue->github() }}" rel="nofollow" target="_blank">{{ $issue->type }} #{{ $issue->number }}</a>
                     </td>
                 </tr>
                 <tr>
