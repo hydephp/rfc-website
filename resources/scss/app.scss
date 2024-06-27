@@ -67,17 +67,17 @@ nav {
 // Pages
 
 .index-page {
-    header {
+    header.page-header {
         margin-top: 20px;
         margin-bottom: 20px;
     }
 
-    header h1 {
+    header.page-header h1 {
         font-size: 32px;
         margin: 0;
     }
 
-    header p {
+    header.page-header p {
         font-size: 18px;
         margin: 10px 0 0;
     }

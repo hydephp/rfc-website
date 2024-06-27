@@ -12,7 +12,7 @@
         </span>
     </nav>
 
-    <header class="text-center">
+    <header class="page-header text-center">
         <h1>HydePHP RFCs</h1>
         <p role="doc-subtitle">
             This website lists all the Request for Comments for the HydePHP framework.
