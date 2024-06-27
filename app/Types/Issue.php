@@ -10,6 +10,7 @@ use App\Helpers\Generics;
 use DateTimeImmutable;
 use Hyde\Support\Models\Route;
 use Hyde\Markdown\Models\Markdown;
+use Hyde\Framework\Actions\ConvertsMarkdownToPlainText;
 
 /**
  * Represent a GitHub Issue, which can be an Issue or a Pull Request.
@@ -89,7 +90,7 @@ readonly class Issue
 
     public function summary(): string
     {
-        $body = $this->body->body();
+        $body = (new ConvertsMarkdownToPlainText($this->body->body()))->execute();
 
         return substr($body, 0, 200).'...';
     }
