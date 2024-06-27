@@ -99,10 +99,8 @@ readonly class Issue
     protected function preprocessSummary(string $markdown): string
     {
         $lines = explode("\n", trim($markdown));
-        // If first line is a heading, remove it
-        if (str_starts_with($lines[0], '#')) {
-            array_shift($lines);
-        }
+        // Remove all headings
+        $lines = array_filter($lines, fn (string $line): bool => ! str_starts_with($line, '#'));
         $markdown = implode("\n", $lines);
 
         return trim($markdown);
