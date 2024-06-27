@@ -49,7 +49,7 @@
                     </table>
                 </header>
                 <p>
-                    {{ $issue->content }}
+                    {{ $issue->body }}
                 </p>
             </article>
         @endforeach
