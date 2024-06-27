@@ -115,6 +115,11 @@ nav {
 
         p {
             margin: 0;
+
+            &.summary {
+                border-left: 3px solid #ccc;
+                padding-left: 10px;
+            }
         }
     }
 }
