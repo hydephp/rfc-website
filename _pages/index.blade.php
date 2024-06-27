@@ -22,6 +22,11 @@
                 Data is sourced from the <a href="https://github.com/hydephp/develop">Development Monorepository</a> and is built nightly using HydePHP.
             </small>
         </p>
+        <p>
+            <small style="border-bottom: 2px solid #dc354599;">
+                Please note that this website is still under development and may not yet be fully accurate or complete.
+            </small>
+        </p>
     </header>
 
     <main>
