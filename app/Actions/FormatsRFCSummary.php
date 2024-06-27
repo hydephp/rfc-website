@@ -22,9 +22,7 @@ class FormatsRFCSummary
 
         $lines = static::removeAllHeadings($lines);
 
-        $markdown = implode("\n", $lines);
-
-        return trim($markdown);
+        return trim(implode("\n", $lines));
     }
 
     protected static function removeAllHeadings(array $lines): array
