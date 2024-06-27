@@ -6,5 +6,8 @@ namespace App\Actions;
 
 class FormatsRFCSummary
 {
-    //
+    public static function handle(string $markdown): string
+    {
+        //
+    }
 }
