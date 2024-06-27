@@ -27,10 +27,12 @@
                 </a>
                 <p>
                     <strong>Author:</strong> {{ $issue->author }}<br>
-                    <strong>Created:</strong> {{ $issue->created }}<br>
-                    @if($issue->updated !== $issue->created)
-                        <strong>Updated:</strong> {{ $issue->updated }}<br>
-                    @endif
+                    <div>
+                        <strong>Created:</strong> {{ $issue->created }}
+                        @if($issue->updated !== $issue->created)
+                            <strong>Updated:</strong> {{ $issue->updated }}
+                        @endif
+                    </div>
                     <strong>Status:</strong> {{ $issue->status }}<br>
                     <strong>Type:</strong> {{ $issue->type }}<br>
                 </p>
