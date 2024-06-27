@@ -98,6 +98,14 @@ nav {
             &:last-of-type {
                 margin-top: 0;
                 margin-bottom: 5px;
+                width: fit-content;
+
+                th {
+                    padding-right: 5px;
+                }
+                td {
+                    padding-right: 10px;
+                }
             }
             th, td {
                 border: none;
