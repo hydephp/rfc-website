@@ -11,7 +11,6 @@
                     </td>
                     <td>
                         <strong>Status:</strong> {{ $issue->status }}
-
                     </td>
                     <td>
                         <strong>Created:</strong> {{ (new \App\Types\CarbonDate($issue->createdAt))->toShortHtml() }}
