@@ -90,7 +90,8 @@ readonly class Issue
 
     public function summary(): string
     {
-        $body = (new ConvertsMarkdownToPlainText($this->body->body()))->execute();
+        $markdown = $this->body->body();
+        $body = (new ConvertsMarkdownToPlainText($markdown))->execute();
 
         return substr($body, 0, 200).'...';
     }
