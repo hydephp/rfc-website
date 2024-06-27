@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Types;
 
+use Exception;
 use App\Helpers\GitHub;
 use App\Helpers\Generics;
 use DateTimeImmutable;
@@ -73,7 +74,7 @@ readonly class Issue
             return $this->link();
         }
 
-        return null;
+        throw new Exception("Property '$name' does not exist in class ".__CLASS__);
     }
 
     /**
