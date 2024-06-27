@@ -7,10 +7,10 @@
             <tbody>
                 <tr>
                     <td>
-                        <strong>Author:</strong> {{ $issue->author->name }}
+                        <strong>Status:</strong> <span class="{{ $issue->status->color() }}">{{ $issue->status }}</span>
                     </td>
                     <td>
-                        <strong>Status:</strong> <span class="{{ $issue->status->color() }}">{{ $issue->status }}</span>
+                        <strong>Author:</strong> {{ $issue->author->name }}
                     </td>
                     <td>
                         <strong>Created:</strong> {{ (new \App\Types\CarbonDate($issue->createdAt))->toShortHtml() }}
