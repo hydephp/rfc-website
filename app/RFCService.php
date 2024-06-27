@@ -43,7 +43,7 @@ class RFCService
                 new Markdown($issue['body']),
                 $this->getUser($issue['user']),
                 IssueType::Issue,
-                $this->getStatus($issue['state']),
+                $this->getStatus(IssueType::Issue, $issue['state']),
                 [], // Todo: Get the comments
                 new DateTimeImmutable($issue['created_at']),
                 new DateTimeImmutable($issue['updated_at']),
@@ -57,7 +57,7 @@ class RFCService
                 new Markdown($pull['body'] ?? ''),
                 $this->getUser($pull['user']),
                 IssueType::PullRequest,
-                $this->getStatus($pull['state']),
+                $this->getStatus(IssueType::PullRequest, $pull['state'], $pull['draft'], $pull['pull_request']['merged_at']),
                 [], // Todo: Get the comments
                 new DateTimeImmutable($pull['created_at']),
                 new DateTimeImmutable($pull['updated_at']),
@@ -106,10 +106,20 @@ class RFCService
         return new GitHubUser($user['login'], ($this->userCache[$user['login']])['name']);
     }
 
-    protected function getStatus(string $state): Status
+    protected function getStatus(IssueType $type, string $state, ?bool $draft = null, ?string $mergedAt = null): Status
     {
+
+        if ($type === IssueType::PullRequest) {
+            if ($state === 'closed') {
+                $state = $mergedAt ? 'merged' : 'rejected';
+            } elseif ($draft) {
+                $state = 'draft';
+            }
+        }
+
         return match ($state) {
-            'open' => Status::Draft,
+            'open' => Status::Open,
+            'draft' => Status::Draft,
             'closed' => Status::Implemented,
             'merged' => Status::Implemented,
             'rejected' => Status::Rejected,
