@@ -42,9 +42,18 @@ jobs:
       - name: Build the site
         run: php hyde build --no-interaction
 
+      - name: Generate commit message
+        id: commit-message
+        run: |
+          # Todo: Would be really cool if we detected if we added any new RFCs, and then add those links to the commit message so they show up in the PR.
+          if [ "${{ github.event_name }}" == "schedule" ]; then
+            echo "message=Nightly Build & Deploy ${{ github.sha }}" >> $GITHUB_OUTPUT
+          else
+            echo "message=Build & Deploy ${{ github.sha }}" >> $GITHUB_OUTPUT
+          fi
+
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           add: 'docs'
-          # Todo: Would be really cool if we detected if we added any new RFCs, and then add those links to the commit message so they show up in the PR.
-          message: 'Build & Deploy: ${{ github.sha }}'
+          message: ${{ steps.commit-message.outputs.message }}
