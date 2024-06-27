@@ -27,6 +27,9 @@ class CarbonDate implements Stringable
     {
         $month = $short ? 'M' : 'F';
 
-        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>', $this->date->format("$month j, Y"), $this->date->format('H:i A')));
+        $date = $this->date->format("$month j, Y");
+        $time = $this->date->format('H:i A');
+
+        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>', $date, $time));
     }
 }
