@@ -18,6 +18,7 @@ use Hyde\Markdown\Models\Markdown;
 class RFCService
 {
     protected IssueList $rfcs;
+    protected array $userCache;
 
     public function handle(): void
     {
@@ -35,13 +36,14 @@ class RFCService
         // More efficient way to find the user data not included by search data, using unique users to reduce API calls.
         $userCache = $this->getUserCache(Arr::unique([...Arr::pluck($issues['items'], 'user.login'), ...Arr::pluck($pulls['items'], 'user.login')]));
         $userCache = Arr::keyBy($userCache, fn ($user) => $user['login']);
+        $this->userCache = $userCache;
 
-        $issues = Arr::map($issues['items'], function (array $issue) use ($userCache): Issue {
+        $issues = Arr::map($issues['items'], function (array $issue): Issue {
             return new Issue(
                 $issue['number'],
                 $issue['title'],
                 new Markdown($issue['body']),
-                new GitHubUser($issue['user']['login'], ($userCache[$issue['user']['login']])['name']),
+                $this->getUser($issue['user']),
                 IssueType::Issue,
                 $this->getStatus($issue['state']),
                 [], // Todo: Get the comments
@@ -50,12 +52,12 @@ class RFCService
             );
         });
 
-        $pulls = Arr::map($pulls['items'], function (array $pull) use ($userCache): Issue {
+        $pulls = Arr::map($pulls['items'], function (array $pull): Issue {
             return new Issue(
                 $pull['number'],
                 $pull['title'],
                 new Markdown($pull['body'] ?? ''),
-                new GitHubUser($pull['user']['login'], ($userCache[$pull['user']['login']])['name']),
+                $this->getUser($pull['user']),
                 IssueType::PullRequest,
                 $this->getStatus($pull['state']),
                 [], // Todo: Get the comments
@@ -91,6 +93,11 @@ class RFCService
     protected function getGitHubUserData(string $username): array
     {
         return GitHub::request('get', 'users/'.$username);
+    }
+
+    protected function getUser(array $user): GitHubUser
+    {
+        return new GitHubUser($user['login'], ($this->userCache[$user['login']])['name']);
     }
 
     protected function getStatus($state): Status
