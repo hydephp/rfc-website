@@ -10,6 +10,11 @@ use Illuminate\Contracts\Support\Htmlable;
 enum Status implements Htmlable
 {
     /**
+     * The RFC is open for discussion. (Only applies to issues, not PRs.)
+     */
+    case Open;
+
+    /**
      * The RFC is still in the draft stage. Only applies to PR RFCs.
      */
     case Draft;
@@ -32,6 +37,7 @@ enum Status implements Htmlable
     public function toHtml(): string
     {
         return match ($this) {
+            self::Open => 'Open',
             self::Draft => 'Draft',
             self::Implemented => 'Implemented',
             self::Rejected => 'Rejected',
