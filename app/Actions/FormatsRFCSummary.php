@@ -13,7 +13,7 @@ class FormatsRFCSummary
         $markdown = static::preprocessSummary($markdown);
         $body = (new ConvertsMarkdownToPlainText($markdown))->execute();
 
-        return substr($body, 0, 200).'...';
+        return static::truncateBody($body);
     }
 
     protected static function preprocessSummary(string $markdown): string
@@ -28,5 +28,11 @@ class FormatsRFCSummary
     protected static function removeAllHeadings(array $lines): array
     {
         return array_filter($lines, fn (string $line): bool => ! str_starts_with($line, '#'));
+    }
+
+    protected static function truncateBody(string $body): string
+    {
+        // Truncate ensuring it doesn't end with a partial word.
+        return preg_replace('/\s+?(\S+)?$/', '', substr($body, 0, 200));
     }
 }
