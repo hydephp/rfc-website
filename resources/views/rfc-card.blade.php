@@ -27,6 +27,7 @@
                             <strong>Updated:</strong> {{ $issue->updated }}
                         </td>
                     @endif
+                    <td class="mobile-table-action"><a href="{{ $issue->link }}">View on GitHub</a></td>
                 </tr>
             </tbody>
         </table>
