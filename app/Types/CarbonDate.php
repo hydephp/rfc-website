@@ -23,8 +23,10 @@ class CarbonDate implements Stringable
         return $this->date->format('Y-m-d H:i:s \U\T\C');
     }
 
-    public function toHtml(): HtmlString
+    public function toHtml(bool $short = false): HtmlString
     {
-        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>', $this->date->format('F j, Y'), $this->date->format('H:i A')));
+        $month = $short ? 'M' : 'F';
+
+        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>', $this->date->format("$month j, Y"), $this->date->format('H:i A')));
     }
 }
