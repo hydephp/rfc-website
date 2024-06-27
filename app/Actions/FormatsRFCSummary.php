@@ -21,6 +21,7 @@ class FormatsRFCSummary
         $lines = explode("\n", trim($markdown));
 
         $lines = static::removeAllHeadings($lines);
+        $lines = static::removeCodeBlocks($lines);
 
         return trim(implode("\n", $lines));
     }
@@ -28,6 +29,19 @@ class FormatsRFCSummary
     protected static function removeAllHeadings(array $lines): array
     {
         return array_filter($lines, fn (string $line): bool => ! str_starts_with($line, '#'));
+    }
+
+    protected static function removeCodeBlocks(array $lines): array
+    {
+        $inCodeBlock = false;
+
+        return array_filter($lines, function (string $line) use (&$inCodeBlock): bool {
+            if (str_starts_with($line, '```')) {
+                $inCodeBlock = ! $inCodeBlock;
+            }
+
+            return ! $inCodeBlock;
+        });
     }
 
     protected static function truncateBody(string $body): string
