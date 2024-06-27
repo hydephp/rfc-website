@@ -6,15 +6,14 @@ namespace App;
 
 use App\Types\GitHubUser;
 use App\Types\Issue;
-use Carbon\Carbon;
+use App\Types\CarbonDate;
 use Hyde\Pages\MarkdownPage;
-use Illuminate\Support\HtmlString;
 
 /**
  * @property-read string $title
  * @property-read GitHubUser $author
- * @property-read Carbon $created
- * @property-read Carbon $updated
+ * @property-read CarbonDate $created
+ * @property-read CarbonDate $updated
  */
 class RFCPage extends MarkdownPage
 {
@@ -28,8 +27,8 @@ class RFCPage extends MarkdownPage
         parent::__construct((string) $issue->number, [
             'title' => $issue->prettyTitle,
             'author' => $issue->author,
-            'created' => Carbon::parse($issue->created),
-            'updated' => Carbon::parse($issue->updated),
+            'created' => new CarbonDate($issue->createdAt),
+            'updated' => new CarbonDate($issue->updatedAt),
         ], $issue->body);
 
         $this->issue = $issue;
@@ -38,10 +37,5 @@ class RFCPage extends MarkdownPage
     public function __get(string $name)
     {
         return $this->matter($name);
-    }
-
-    public function formatDate(Carbon $carbon): HtmlString
-    {
-        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>', $carbon->format('F j, Y'), $carbon->format('H:i A')));
     }
 }
