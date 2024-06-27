@@ -113,7 +113,6 @@ class RFCService
             'closed' => Status::Implemented,
             'merged' => Status::Implemented,
             'rejected' => Status::Rejected,
-            default => Status::Stale,
         };
     }
 }
