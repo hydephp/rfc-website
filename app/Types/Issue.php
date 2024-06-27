@@ -90,10 +90,15 @@ readonly class Issue
 
     public function summary(): string
     {
-        $markdown = $this->body->body();
+        $markdown = $this->preprocessSummary($this->body->body());
         $body = (new ConvertsMarkdownToPlainText($markdown))->execute();
 
         return substr($body, 0, 200).'...';
+    }
+
+    protected function preprocessSummary(string $markdown): string
+    {
+        return $markdown;
     }
 
     protected function prettyTitle(): string
