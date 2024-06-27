@@ -34,6 +34,11 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      - name: Configure environment variables
+        run: |
+          cp .env.example .env
+          echo GITHUB_TOKEN=${{ secrets.API_TOKEN_GITHUB }} >> .env
+
       - name: Build the site
         run: php hyde build --no-interaction
 
