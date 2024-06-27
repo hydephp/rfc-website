@@ -23,11 +23,6 @@ class AppServiceProvider extends ServiceProvider
         $this->commands([
             ClearCommand::class,
         ]);
-
-        // Until/unless https://github.com/laravel/framework/pull/51868 is merged
-        Arr::macro('unique', function (array $array): array {
-            return array_unique($array);
-        });
     }
 
     /**
