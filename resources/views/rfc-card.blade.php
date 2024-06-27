@@ -22,7 +22,7 @@
                         </td>
                     @endif
                     <td>
-                        <strong>Source:</strong> <a href="{{ $issue->github() }}" rel="nofollow" target="_blank">{{ $issue->type }} #{{ $issue->number }}</a>
+                        <strong>Source:</strong> <a href="{{ $issue->github() }}" rel="nofollow" target="_blank">{{ $issue->type->shortName() }} #{{ $issue->number }}</a>
                     </td>
                 </tr>
             </tbody>

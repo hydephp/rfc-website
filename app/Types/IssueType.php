@@ -28,4 +28,12 @@ enum IssueType implements Htmlable
             self::PullRequest => 'Pull Request',
         };
     }
+
+    public function shortName(): string
+    {
+        return match ($this) {
+            self::Issue => 'Issue',
+            self::PullRequest => 'PR',
+        };
+    }
 }
