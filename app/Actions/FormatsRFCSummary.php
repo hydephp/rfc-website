@@ -47,6 +47,7 @@ class FormatsRFCSummary
     protected static function truncateBody(string $body): string
     {
         // Truncate ensuring it doesn't end with a partial word.
+
         return preg_replace('/\s+?(\S+)?$/', '', substr($body, 0, 200));
     }
 }
