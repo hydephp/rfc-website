@@ -73,7 +73,10 @@ readonly class Issue
      */
     public function github(): string
     {
-        $path = ($this->type === IssueType::PullRequest) ? 'pull' : 'issues';
+        $path = match ($this->type) {
+            IssueType::PullRequest => 'pull',
+            IssueType::Issue => 'issues',
+        };
 
         return 'https://github.com/'.GitHub::REPOSITORY.'/'.$path.'/'.$this->number;
     }
