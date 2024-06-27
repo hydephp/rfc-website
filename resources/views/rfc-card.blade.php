@@ -20,11 +20,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <strong>Created:</strong> {{ (new \App\Types\CarbonDate($issue->createdAt))->toHtml(true, false) }}
+                        <strong>Created:</strong> {{ (new \App\Types\CarbonDate($issue->createdAt))->toShortHtml() }}
                     </td>
                     @if($issue->updated !== $issue->created)
                         <td>
-                            <strong>Updated:</strong> {{ (new \App\Types\CarbonDate($issue->updatedAt))->toHtml(true, false) }}
+                            <strong>Updated:</strong> {{ (new \App\Types\CarbonDate($issue->updatedAt))->toShortHtml() }}
                         </td>
                     @endif
                     <td class="mobile-table-action"><a href="{{ $issue->link }}">View on GitHub</a></td>
