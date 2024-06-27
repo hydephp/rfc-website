@@ -29,13 +29,12 @@
                     <strong>Author:</strong> {{ $issue->author }}<br>
                     <strong>Status:</strong> {{ $issue->status }}<br>
                     <strong>Type:</strong> {{ $issue->type }}<br>
-                    <div>
-                        <strong>Created:</strong> {{ $issue->created }}
-                        @if($issue->updated !== $issue->created)
-                            <strong>Updated:</strong> {{ $issue->updated }}
-                        @endif
-                    </div>
-
+                </p>
+                <p>
+                    <strong>Created:</strong> {{ $issue->created }}
+                    @if($issue->updated !== $issue->created)
+                        <strong>Updated:</strong> {{ $issue->updated }}
+                    @endif
                 </p>
                 <p>
                     {{ $issue->content }}
