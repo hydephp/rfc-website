@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Types;
 
+use App\Actions\FormatsRFCTitle;
 use App\Helpers\Generics;
 use App\Helpers\GitHub;
 use DateTimeImmutable;
@@ -23,7 +24,6 @@ use Hyde\Support\Models\Route;
 readonly class Issue
 {
     protected final const string DATE_FORMAT = 'Y-m-d H:i:s';
-    protected final const string TITLE_FORMAT = 'RFC %d: %s';
 
     public int $number;
     public string $title;
@@ -62,7 +62,7 @@ readonly class Issue
         return match ($name) {
             'created' => $this->createdAt->format(self::DATE_FORMAT),
             'updated' => $this->updatedAt->format(self::DATE_FORMAT),
-            'prettyTitle' => $this->prettyTitle(),
+            'prettyTitle' => FormatsRFCTitle::handle($this->number, $this->title),
             'link' => $this->link(),
             default => throw new Exception("Property '$name' does not exist in class ".__CLASS__),
         };
@@ -98,32 +98,8 @@ readonly class Issue
         return trim($markdown);
     }
 
-    protected function prettyTitle(): string
-    {
-        return sprintf(self::TITLE_FORMAT, $this->number, $this->trimTitleAffixes());
-    }
-
     protected function link(): Route
     {
         return route("rfc/$this->number");
-    }
-
-    private function trimTitleAffixes(): string
-    {
-        $title = $this->title;
-
-        if (str_starts_with($title, 'RFC')) {
-            $title = substr($title, 3);
-        }
-
-        if (str_ends_with($title, 'RFC')) {
-            $title = substr($title, 0, -3);
-        }
-
-        if (str_ends_with($title, '(RFC)')) {
-            $title = substr($title, 0, -5);
-        }
-
-        return trim($title, ' :');
     }
 }
