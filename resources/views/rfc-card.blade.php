@@ -11,6 +11,10 @@
                     <th>Type:</th><td>{{ $issue->type }}</td>
                     <td><a href="{{ $issue->link }}">View on GitHub</a></td>
                 </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
                 <tr>
                     <th>Created:</th><td>{{ $issue->created }}</td>
                     @if($issue->updated !== $issue->created)
