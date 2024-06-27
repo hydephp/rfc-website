@@ -230,19 +230,21 @@ nav {
     }
 }
 
-@media screen and (max-width: 600px) {
-    .index-page article table {
-        display: block;
-
-        td {
+@media screen and (max-width: 800px) {
+    .index-page article {
+        table {
             display: block;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
 
-            &:last-child {
-                border-bottom: none;
+            td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 10px 0;
+                border-bottom: 1px solid #ddd;
+
+                &:last-child {
+                    border-bottom: none;
+                }
             }
         }
     }
