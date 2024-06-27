@@ -111,14 +111,6 @@ nav {
                 min-width: fit-content;
                 white-space: nowrap;
                 padding: 0 1em 0 0;
-
-                &.table-action {
-                    width: 100%;
-                    text-align: right;
-                }
-                &.mobile-table-action {
-                    display: none;
-                }
             }
         }
 
@@ -242,13 +234,6 @@ nav {
             display: block;
             width: 100%;
             box-sizing: border-box;
-            &.table-action {
-                display: none;
-            }
-            &.mobile-table-action {
-                margin-top: 5px;
-                display: block;
-            }
         }
     }
 }

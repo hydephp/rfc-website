@@ -14,9 +14,8 @@
 
                     </td>
                     <td>
-                        <strong>Type:</strong> {{ $issue->type }}
+                        <strong>Source:</strong> <a href="{{ $issue->github() }}">{{ $issue->type }} #{{ $issue->number }}</a>
                     </td>
-                    <td class="table-action"><a href="{{ $issue->github() }}">View on GitHub</a></td>
                 </tr>
                 <tr>
                     <td>
@@ -27,7 +26,6 @@
                             <strong>Updated:</strong> {{ (new \App\Types\CarbonDate($issue->updatedAt))->toShortHtml() }}
                         </td>
                     @endif
-                    <td class="mobile-table-action"><a href="{{ $issue->link }}">View on GitHub</a></td>
                 </tr>
             </tbody>
         </table>
