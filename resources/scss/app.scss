@@ -235,6 +235,7 @@ nav {
 
 @media screen and (max-width: 600px) {
     .index-page article table {
+        padding-top: 5px;
         display: block;
 
         td {
@@ -245,6 +246,7 @@ nav {
                 display: none;
             }
             &.mobile-table-action {
+                margin-top: 5px;
                 display: block;
             }
         }
