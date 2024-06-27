@@ -206,6 +206,28 @@ nav {
     }
 }
 
+.status-color {
+    &.status-implemented {
+        color: #28a745;
+    }
+
+    &.status-rejected {
+        color: #dc3545;
+    }
+
+    &.status-open {
+        color: #007bff;
+    }
+
+    &.status-draft {
+        color: #6c757d;
+    }
+
+    &.status-stale {
+        color: #6c757d;
+    }
+}
+
 @media screen {
     .rfc-page {
         article {
