@@ -47,9 +47,9 @@ jobs:
         run: |
           # Todo: Would be really cool if we detected if we added any new RFCs, and then add those links to the commit message so they show up in the PR.
           if [ "${{ github.event_name }}" == "schedule" ]; then
-            echo "message=Nightly Build & Deploy ${{ github.sha }}" >> $GITHUB_OUTPUT
+            echo "message=Nightly Build & Deploy `${{ github.sha }}`" >> $GITHUB_OUTPUT
           else
-            echo "message=Build & Deploy ${{ github.sha }}" >> $GITHUB_OUTPUT
+            echo "message=Build & Deploy `${{ github.sha }}`" >> $GITHUB_OUTPUT
           fi
 
       - name: Commit changes
