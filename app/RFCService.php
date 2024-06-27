@@ -106,7 +106,7 @@ class RFCService
         return new GitHubUser($user['login'], ($this->userCache[$user['login']])['name']);
     }
 
-    protected function getStatus($state): Status
+    protected function getStatus(string $state): Status
     {
         return match ($state) {
             'open' => Status::Draft,
