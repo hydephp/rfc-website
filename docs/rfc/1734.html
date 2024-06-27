@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HydePHP - RFC 1590: Dynamic markdown links</title>
-    <link rel="canonical" href="https://rfc.hydephp.com/rfc/1590.html">
-<meta name="twitter:title" content="HydePHP - RFC 1590: Dynamic markdown links">
-<meta property="og:title" content="HydePHP - RFC 1590: Dynamic markdown links">
+    <title>HydePHP - RFC 1734: Should Includes helpers returning Html return HtmlStrings?</title>
+    <link rel="canonical" href="https://rfc.hydephp.com/rfc/1734.html">
+<meta name="twitter:title" content="HydePHP - RFC 1734: Should Includes helpers returning Html return HtmlStrings?">
+<meta property="og:title" content="HydePHP - RFC 1734: Should Includes helpers returning Html return HtmlStrings?">
 
 
 <link rel="sitemap" href="https://rfc.hydephp.com/sitemap.xml" type="application/xml" title="Sitemap">
@@ -32,7 +32,7 @@
 
         <span>
             [<a href="../index.html">RFC Home</a>]
-            [<a href="https://github.com/hydephp/develop/pull/1590">View on GitHub</a>]
+            [<a href="https://github.com/hydephp/develop/issues/1734">View on GitHub</a>]
             <span class="requires-js">
                 [<a onclick="window.print(); return false;" href="">Print</a>]
             </span>
@@ -42,7 +42,7 @@
     <main>
         <article>
             <header>
-                <h1>RFC 1590: Dynamic markdown links</h1>
+                <h1>RFC 1734: Should Includes helpers returning Html return HtmlStrings?</h1>
                 <fieldset>
                     <legend>Details</legend>
                     <p class="meta">
@@ -50,14 +50,23 @@
                         (<a href="https://github.com/caendesilva" rel="author nofollow noopener" target="_blank">&commat;caendesilva</a>)
                                                     <span title="This user is verified to be part of the HydePHP organization." class="no-print">✅</span>
                                                 <br>
-                        <time datetime="2024-02-25 17:49:18" title="2024-02-25 17:49:18"><b>Created:</b> February 25, 2024 <span class="text-muted">17:49 PM</span></time>
-                                                    &middot; <time datetime="2024-06-19 19:29:21" title="2024-06-19 19:29:21"><b>Updated:</b> June 19, 2024 <span class="text-muted">19:29 PM</span></time>
+                        <time datetime="2024-06-23 15:42:50" title="2024-06-23 15:42:50"><b>Created:</b> June 23, 2024 <span class="text-muted">15:42 PM</span></time>
+                                                    &middot; <time datetime="2024-06-27 11:57:36" title="2024-06-27 11:57:36"><b>Updated:</b> June 27, 2024 <span class="text-muted">11:57 AM</span></time>
                                             </p>
                 </fieldset>
             </header>
             <fieldset>
                 <legend>Abstract</legend>
-                <p><a href="https://twitter.com/CodeWithCaen/status/1761810371063497098">https://twitter.com/CodeWithCaen/status/1761810371063497098</a></p>
+                <p>We have this class, where we document that &quot;Both Markdown and Blade includes will be rendered to HTML&quot;. Wouldn't it then make more sense if these returned <code>HtmlString</code> objects instead of <code>string</code> types?</p>
+<pre><code class="language-php">/**
+ * The Includes facade provides a simple way to access partials in the includes directory.
+ *
+ * Both Markdown and Blade includes will be rendered to HTML.
+ */
+class Includes
+</code></pre>
+<p>This is more semantic, but has the side effect that they will no longer be escaped.</p>
+<p>Considering the usages though, I imagine that these are already being used within literal echo directives <code>{!!  !!}</code>. It could be a breaking change, and it needs to be communicated clearly, so possibly something for v2.x?</p>
 
             </fieldset>
         </article>
@@ -80,7 +89,7 @@
     <p class="print-only">
         <small>
             Page generated at 2024-06-27 12:00:06 UTC<br>
-            https://rfc.hydephp.com/rfc/1590.html
+            https://rfc.hydephp.com/rfc/1734.html
         </small>
     </p>
 </footer>
