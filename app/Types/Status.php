@@ -44,4 +44,15 @@ enum Status implements Htmlable
             self::Stale => 'Stale',
         };
     }
+
+    public function color(): string
+    {
+        return match ($this) {
+            self::Open => 'status-color status-open',
+            self::Draft => 'status-color status-draft',
+            self::Implemented => 'status-color status-implemented',
+            self::Rejected => 'status-color status-rejected',
+            self::Stale => 'status-color status-stale',
+        };
+    }
 }
