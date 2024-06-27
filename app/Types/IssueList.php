@@ -22,7 +22,7 @@ class IssueList
      */
     public function __construct(array $issues)
     {
-        $this->issues = Arr::sort(Generics::typeSafeArray($issues, Issue::class), 'number');
+        $this->issues = Arr::sortDesc(Generics::typeSafeArray($issues, Issue::class), 'number');
     }
 
     /**
