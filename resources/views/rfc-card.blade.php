@@ -14,10 +14,6 @@
 
                     </td>
                     <td>
-                        <strong>Source:</strong> <a href="{{ $issue->github() }}" rel="nofollow" target="_blank">{{ $issue->type }} #{{ $issue->number }}</a>
-                    </td>
-
-                    <td>
                         <strong>Created:</strong> {{ (new \App\Types\CarbonDate($issue->createdAt))->toShortHtml() }}
                     </td>
                     @if($issue->updated !== $issue->created)
@@ -25,6 +21,9 @@
                             <strong>Updated:</strong> {{ (new \App\Types\CarbonDate($issue->updatedAt))->toShortHtml() }}
                         </td>
                     @endif
+                    <td>
+                        <strong>Source:</strong> <a href="{{ $issue->github() }}" rel="nofollow" target="_blank">{{ $issue->type }} #{{ $issue->number }}</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
