@@ -37,13 +37,18 @@ class RFCService
         $userCache = Arr::keyBy($userCache, fn ($user) => $user['login']);
 
         $issues = Arr::map($issues['items'], function (array $issue) use ($userCache): Issue {
+            $status = match ($issue['state']) {
+                'open' => Status::Draft,
+                'closed' => Status::Implemented,
+                default => Status::Stale,
+            };
             return new Issue(
                 $issue['number'],
                 $issue['title'],
                 new Markdown($issue['body']),
                 new GitHubUser($issue['user']['login'], ($userCache[$issue['user']['login']])['name']),
                 IssueType::Issue,
-                Status::Draft, // Todo: Determine the status
+                $status, // Todo: Determine the status
                 [], // Todo: Get the comments
                 new DateTimeImmutable($issue['created_at']),
                 new DateTimeImmutable($issue['updated_at']),
@@ -51,13 +56,18 @@ class RFCService
         });
 
         $pulls = Arr::map($pulls['items'], function (array $pull) use ($userCache): Issue {
+            $status = match ($pull['state']) {
+                'open' => Status::Draft,
+                'closed' => Status::Implemented,
+                default => Status::Stale,
+            };
             return new Issue(
                 $pull['number'],
                 $pull['title'],
                 new Markdown($pull['body'] ?? ''),
                 new GitHubUser($pull['user']['login'], ($userCache[$pull['user']['login']])['name']),
                 IssueType::PullRequest,
-                Status::Draft, // Todo: Determine the status
+                $status, // Todo: Determine the status
                 [], // Todo: Get the comments
                 new DateTimeImmutable($pull['created_at']),
                 new DateTimeImmutable($pull['updated_at']),
