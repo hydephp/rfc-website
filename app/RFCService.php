@@ -81,14 +81,14 @@ class RFCService
         });
     }
 
-    protected function makeUserCache($issues, $pulls): array
+    protected function makeUserCache(array $issues, array $pulls): array
     {
         $userCache = $this->getUserCache(array_unique([...Arr::pluck($issues, 'user.login'), ...Arr::pluck($pulls, 'user.login')]));
 
-        return Arr::keyBy($userCache, fn ($user) => $user['login']);
+        return Arr::keyBy($userCache, fn (array $user): string => $user['login']);
     }
 
-    protected function getUserCache($usersToCache): array
+    protected function getUserCache(array $usersToCache): array
     {
         return Arr::map($usersToCache, function (string $username): array {
             return $this->getGitHubUserData($username);
