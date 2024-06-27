@@ -89,7 +89,9 @@ readonly class Issue
 
     public function summary(): string
     {
-        return substr($this->body->body(), 0, 200).'...';
+        $body = $this->body->body();
+
+        return substr($body, 0, 200).'...';
     }
 
     protected function prettyTitle(): string
