@@ -235,11 +235,6 @@ nav {
     .index-page article table {
         display: block;
 
-        tr {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
         td {
             display: block;
             width: 100%;
@@ -250,18 +245,6 @@ nav {
             &:last-child {
                 border-bottom: none;
             }
-        }
-
-        tr:first-of-type td.table-action {
-            order: 2; // Ensure .table-action is displayed last in the first row
-        }
-
-        tr:first-of-type td:not(.table-action) {
-            order: 1; // Other cells in the first row are displayed before .table-action
-        }
-
-        tr:last-of-type td {
-            order: 3; // Ensure second row cells are displayed after the first row
         }
     }
 }
