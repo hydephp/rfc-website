@@ -32,7 +32,7 @@
                         <h2>{{ $issue->prettyTitle }}</h2>
                     </a>
                     <p>
-                        <strong>Author:</strong> {{ $issue->author }}<br>
+                        <strong>Author:</strong> {{ $issue->author->name }}<br>
                         <strong>Status:</strong> {{ $issue->status }}<br>
                         <strong>Type:</strong> {{ $issue->type }}<br>
                     </p>
