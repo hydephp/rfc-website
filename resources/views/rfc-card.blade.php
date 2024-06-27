@@ -18,10 +18,6 @@
                     </td>
                     <td class="table-action"><a href="{{ $issue->link }}">View on GitHub</a></td>
                 </tr>
-            </tbody>
-        </table>
-        <table>
-            <tbody>
                 <tr>
                     <td>
                         <strong>Created:</strong> {{ $issue->created }}
