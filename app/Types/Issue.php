@@ -98,7 +98,14 @@ readonly class Issue
 
     protected function preprocessSummary(string $markdown): string
     {
-        return $markdown;
+        $lines = explode("\n", trim($markdown));
+        // If first line is a heading, remove it
+        if (str_starts_with($lines[0], '#')) {
+            array_shift($lines);
+        }
+        $markdown = implode("\n", $lines);
+
+        return trim($markdown);
     }
 
     protected function prettyTitle(): string
