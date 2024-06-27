@@ -43,7 +43,7 @@ class RFCService
                 new Markdown($issue['body']),
                 new GitHubUser($issue['user']['login'], ($userCache[$issue['user']['login']])['name']),
                 IssueType::Issue,
-                $this->getStatus($issue['state']), // Todo: Determine the status
+                $this->getStatus($issue['state']),
                 [], // Todo: Get the comments
                 new DateTimeImmutable($issue['created_at']),
                 new DateTimeImmutable($issue['updated_at']),
@@ -57,7 +57,7 @@ class RFCService
                 new Markdown($pull['body'] ?? ''),
                 new GitHubUser($pull['user']['login'], ($userCache[$pull['user']['login']])['name']),
                 IssueType::PullRequest,
-                $this->getStatus($pull['state']), // Todo: Determine the status
+                $this->getStatus($pull['state']),
                 [], // Todo: Get the comments
                 new DateTimeImmutable($pull['created_at']),
                 new DateTimeImmutable($pull['updated_at']),
