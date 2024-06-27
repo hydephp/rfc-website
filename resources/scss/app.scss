@@ -92,19 +92,9 @@ nav {
         table {
             width: 100%;
             border-collapse: collapse;
-            &:first-of-type {
-                margin-top: 5px;
-                margin-bottom: 0;
-            }
-            &:last-of-type {
-                margin-top: 0;
-                margin-bottom: 5px;
-                width: fit-content;
+            margin-top: 5px;
+            margin-bottom: 5px;
 
-                td {
-                    padding-right: 20px;
-                }
-            }
             td {
                 border: none;
                 text-align: left;

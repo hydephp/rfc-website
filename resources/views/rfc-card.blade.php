@@ -16,8 +16,7 @@
                     <td>
                         <strong>Source:</strong> <a href="{{ $issue->github() }}" rel="nofollow" target="_blank">{{ $issue->type }} #{{ $issue->number }}</a>
                     </td>
-                </tr>
-                <tr>
+
                     <td>
                         <strong>Created:</strong> {{ (new \App\Types\CarbonDate($issue->createdAt))->toShortHtml() }}
                     </td>
