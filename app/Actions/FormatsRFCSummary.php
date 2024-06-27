@@ -20,7 +20,6 @@ class FormatsRFCSummary
     {
         $lines = explode("\n", trim($markdown));
 
-        // Remove all headings
         $lines = static::removeAllHeadings($lines);
 
         $markdown = implode("\n", $lines);
