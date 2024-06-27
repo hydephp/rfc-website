@@ -78,7 +78,9 @@ readonly class Issue
             IssueType::Issue => 'issues',
         };
 
-        return 'https://github.com/'.GitHub::REPOSITORY.'/'.$path.'/'.$this->number;
+        $repository = GitHub::REPOSITORY;
+
+        return "https://github.com/$repository/$path/$this->number";
     }
 
     public function summary(): string
