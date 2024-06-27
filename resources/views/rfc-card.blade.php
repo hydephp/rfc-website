@@ -6,9 +6,16 @@
         <table>
             <tbody>
                 <tr>
-                    <th>Author:</th><td>{{ $issue->author->name }}</td>
-                    <th>Status:</th><td>{{ $issue->status }}</td>
-                    <th>Type:</th><td>{{ $issue->type }}</td>
+                    <td>
+                        <strong>Author:</strong> {{ $issue->author->name }}
+                    </td>
+                    <td>
+                        <strong>Status:</strong> {{ $issue->status }}
+
+                    </td>
+                    <td>
+                        <strong>Type:</strong> {{ $issue->type }}
+                    </td>
                     <td class="table-action"><a href="{{ $issue->link }}">View on GitHub</a></td>
                 </tr>
             </tbody>
@@ -16,9 +23,13 @@
         <table>
             <tbody>
                 <tr>
-                    <th>Created:</th><td>{{ $issue->created }}</td>
+                    <td>
+                        <strong>Created:</strong> {{ $issue->created }}
+                    </td>
                     @if($issue->updated !== $issue->created)
-                        <th>Updated:</th><td>{{ $issue->updated }}</td>
+                        <td>
+                            <strong>Updated:</strong> {{ $issue->updated }}
+                        </td>
                     @endif
                 </tr>
             </tbody>
