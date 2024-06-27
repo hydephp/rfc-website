@@ -17,6 +17,11 @@
         <p role="doc-subtitle">
             This website lists all the Request for Comments for the HydePHP framework.
         </p>
+        <p>
+            <small>
+                Data is sourced from the <a href="https://github.com/hydephp/develop">Development Monorepository</a> and is built nightly using HydePHP.
+            </small>
+        </p>
     </header>
 
     <main>
