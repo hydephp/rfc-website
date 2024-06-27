@@ -48,6 +48,8 @@ class FormatsRFCSummary
     {
         // Truncate ensuring it doesn't end with a partial word.
 
+        // Todo: We could improve this further by exploding out sentences, and reassembling them until we reach the limit.
+
         return preg_replace('/\s+?(\S+)?$/', '', substr($body, 0, 200));
     }
 }
