@@ -31,17 +31,21 @@
                     <a href="{{ $issue->link }}">
                         <h2>{{ $issue->prettyTitle }}</h2>
                     </a>
-                    <p>
-                        <strong>Author:</strong> {{ $issue->author->name }}
-                        <strong>Status:</strong> {{ $issue->status }}
-                        <strong>Type:</strong> {{ $issue->type }}
-                    </p>
-                    <p>
-                        <strong>Created:</strong> {{ $issue->created }}
-                        @if($issue->updated !== $issue->created)
-                            <strong>Updated:</strong> {{ $issue->updated }}
-                        @endif
-                    </p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Author:</th><td>{{ $issue->author->name }}</td>
+                                <th>Status:</th><td>{{ $issue->status }}</td>
+                                <th>Type:</th><td>{{ $issue->type }}</td>
+                            </tr>
+                            <tr>
+                                <th>Created:</th><td>{{ $issue->created }}</td>
+                                @if($issue->updated !== $issue->created)
+                                    <th>Updated:</th><td>{{ $issue->updated }}</td>
+                                @endif
+                            </tr>
+                        </tbody>
+                    </table>
                 </header>
                 <p>
                     {{ $issue->content }}

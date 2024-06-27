@@ -88,6 +88,22 @@ nav {
         margin-bottom: 20px;
         margin-left: 40px;
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            th, td {
+                border: none;
+                padding: 0;
+                text-align: left;
+
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+
         a {
             text-decoration: none;
         }
