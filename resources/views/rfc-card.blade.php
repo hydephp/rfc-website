@@ -10,7 +10,7 @@
                         <strong>Author:</strong> {{ $issue->author->name }}
                     </td>
                     <td>
-                        <strong>Status:</strong> {{ $issue->status }}
+                        <strong>Status:</strong> <span class="{{ $issue->status->color() }}">{{ $issue->status }}</span>
                     </td>
                     <td>
                         <strong>Created:</strong> {{ (new \App\Types\CarbonDate($issue->createdAt))->toShortHtml() }}
