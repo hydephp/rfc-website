@@ -28,7 +28,7 @@
             </tbody>
         </table>
     </header>
-    <p>
+    <p class="summary">
         {{ $issue->summary() }}
     </p>
 </article>
