@@ -87,6 +87,11 @@ readonly class Issue
         return 'https://github.com/'.GitHub::REPOSITORY.'/'.$path.'/'.$this->number;
     }
 
+    public function summary(): string
+    {
+        return substr($this->body->body(), 0, 200);
+    }
+
     protected function prettyTitle(): string
     {
         return sprintf(self::TITLE_FORMAT, $this->number, $this->trimTitleAffixes());

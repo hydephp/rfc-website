@@ -49,7 +49,7 @@
                     </table>
                 </header>
                 <p>
-                    {{ substr($issue->body, 0, 200) }}...
+                    {{ $issue->summary() }}
                 </p>
             </article>
         @endforeach
