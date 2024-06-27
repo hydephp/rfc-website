@@ -16,7 +16,7 @@
                     <td>
                         <strong>Type:</strong> {{ $issue->type }}
                     </td>
-                    <td class="table-action"><a href="{{ $issue->link }}">View on GitHub</a></td>
+                    <td class="table-action"><a href="{{ $issue->github() }}">View on GitHub</a></td>
                 </tr>
                 <tr>
                     <td>
