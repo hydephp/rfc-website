@@ -41,4 +41,5 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: 'docs'
+          # Todo: Would be really cool if we detected if we added any new RFCs, and then add those links to the commit message so they show up in the PR.
           message: 'Build & Deploy: ${{ github.sha }}'
