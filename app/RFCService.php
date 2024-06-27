@@ -111,6 +111,8 @@ class RFCService
         return match ($state) {
             'open' => Status::Draft,
             'closed' => Status::Implemented,
+            'merged' => Status::Implemented,
+            'rejected' => Status::Rejected,
             default => Status::Stale,
         };
     }
