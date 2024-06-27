@@ -108,12 +108,8 @@ nav {
                 border: none;
                 padding: 0;
                 text-align: left;
-                min-width: fit-content;
-                white-space: nowrap;
-                padding-right: 1em;
 
                 &.table-action {
-                    width: 100%;
                     text-align: right;
                 }
             }
