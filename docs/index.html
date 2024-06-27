@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="HydePHP">
 
 
-    <style>body{font-family:monospace;font-size:14px;line-height:1.5;margin:0;padding:0;display:flex;flex-direction:column;min-height:100vh}main{margin:0 auto;width:800px;max-width:90vw;padding:20px;flex:1}h1,h2,h3,h4,h5,h6{font-weight:bold;white-space:pre;font-family:monospace;text-wrap:wrap}footer{margin-top:20px;padding:12px;background-color:#f8f9fa}footer p{line-height:1.5;margin:4px 0 0}footer .links{margin-top:8px}nav{padding:10px;display:flex;justify-content:space-between;background-color:#f8f9fa}nav strong a{color:#333;text-decoration:none}.text-center{text-align:center}.text-muted{opacity:0.75}.index-page header.page-header{margin-top:20px;margin-bottom:20px}.index-page header.page-header h1{font-size:32px;margin:0}.index-page header.page-header p{font-size:18px;margin:10px 0 0}.index-page article{color:#333;text-decoration:none;margin-bottom:20px;margin-left:40px}.index-page article table{width:100%;border-collapse:collapse;margin-top:10px;margin-bottom:10px}.index-page article table th,.index-page article table td{border:none;padding:0;text-align:left}.index-page article table th:last-child,.index-page article table td:last-child{text-align:right}.index-page article a{text-decoration:none}.index-page article h2{font-size:20px;margin:0}.index-page article p{margin:0}.rfc-page fieldset{padding:0 10px;border:1px solid #ccc;margin:-1px;margin-top:20px}.rfc-page fieldset legend{font-weight:bold}.process-page h1{font-size:32px;margin-bottom:0}.process-page main{width:900px}.process-page li p{margin-top:15px;margin-bottom:5px}.process-page li ul{padding-left:20px}@media print{body{font-size:10.5pt}a:link{color:inherit;text-decoration:none}a:visited{color:inherit;text-decoration:none}.no-print{display:none !important}footer{background-color:inherit}.rfc-page article pre{margin-left:20px}fieldset{padding:0 !important;margin:0 !important;border:none !important}fieldset legend{display:none}}@media screen{.rfc-page article>pre{background-color:#f8f9fa;padding:10px 15px;overflow-x:auto}.print-only{display:none}}</style>
+    <style>body{font-family:monospace;font-size:14px;line-height:1.5;margin:0;padding:0;display:flex;flex-direction:column;min-height:100vh}main{margin:0 auto;width:800px;max-width:90vw;padding:20px;flex:1}h1,h2,h3,h4,h5,h6{font-weight:bold;white-space:pre;font-family:monospace;text-wrap:wrap}footer{margin-top:20px;padding:12px;background-color:#f8f9fa}footer p{line-height:1.5;margin:4px 0 0}footer .links{margin-top:8px}nav{padding:10px;display:flex;justify-content:space-between;background-color:#f8f9fa}nav strong a{color:#333;text-decoration:none}.text-center{text-align:center}.text-muted{opacity:0.75}.index-page header.page-header{margin-top:20px;margin-bottom:20px;padding-left:20px;padding-right:20px}.index-page header.page-header h1{font-size:32px;margin:0}.index-page header.page-header p{font-size:18px;margin:10px 0 0}.index-page article{color:#333;text-decoration:none;margin-bottom:20px}.index-page article table{width:100%;border-collapse:collapse}.index-page article table:first-of-type{margin-top:5px;margin-bottom:0}.index-page article table:last-of-type{margin-top:0;margin-bottom:5px;width:fit-content}.index-page article table:last-of-type td{padding-right:20px}.index-page article table td{border:none;text-align:left;min-width:fit-content;white-space:nowrap;padding:0 1em 0 0}.index-page article table td.table-action{width:100%;text-align:right}.index-page article a{text-decoration:none}.index-page article h2{font-size:20px;margin:0}.index-page article p{margin:0}.rfc-page fieldset{padding:0 10px;border:1px solid #ccc;margin:-1px;margin-top:20px}.rfc-page fieldset legend{font-weight:bold}.process-page h1{font-size:32px;margin-bottom:0}.process-page main{width:900px}.process-page li p{margin-top:15px;margin-bottom:5px}.process-page li ul{padding-left:20px}@media print{body{font-size:10.5pt}a:link{color:inherit;text-decoration:none}a:visited{color:inherit;text-decoration:none}.no-print{display:none !important}footer{background-color:inherit}.rfc-page article pre{margin-left:20px}fieldset{padding:0 !important;margin:0 !important;border:none !important}fieldset legend{display:none}}@media screen{.rfc-page article>pre{background-color:#f8f9fa;padding:10px 15px;overflow-x:auto}.print-only{display:none}}@media screen and (max-width:600px){.index-page article table{display:block}.index-page article table td{display:block;width:100%;box-sizing:border-box;padding:10px 0;border-bottom:1px solid #ddd}.index-page article table td:last-child{border-bottom:none}}</style>
     <noscript>
         <style>
             .requires-js {
@@ -50,90 +50,117 @@
 
     <main>
                     <article>
-                <header>
-                    <a href="rfc/1517.html">
-                        <h2>RFC 1517: Allow the Blade view to be set using front matter for Markdown pages</h2>
-                    </a>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Author:</th><td>Caen De Silva</td>
-                                <th>Status:</th><td>Implemented</td>
-                                <th>Type:</th><td>Pull Request</td>
-                                <td><a href="rfc/1517.html">View on GitHub</a></td>
-                            </tr>
-                            <tr>
-                                <th>Created:</th><td>2024-02-01 15:48:45</td>
-                                                                    <th>Updated:</th><td>2024-06-22 12:38:48</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </header>
-                <p>
-                    Summary
+    <header>
+        <a href="rfc/1517.html">
+            <h2>RFC 1517: Allow the Blade view to be set using front matter for Markdown pages</h2>
+        </a>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Author:</strong> Caen De Silva
+                    </td>
+                    <td>
+                        <strong>Status:</strong> Implemented
 
-This proposal adds a front matter option for Markdown pages to allow a custom Blade template to be used.
-
-Usage
+                    </td>
+                    <td>
+                        <strong>Type:</strong> Pull Request
+                    </td>
+                    <td class="table-action"><a href="rfc/1517.html">View on GitHub</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Created:</strong> 2024-02-01 15:48:45
+                    </td>
+                                            <td>
+                            <strong>Updated:</strong> 2024-06-22 12:38:48
+                        </td>
+                                    </tr>
+            </tbody>
+        </table>
+    </header>
+    <p>
+        This proposal adds a front matter option for Markdown pages to allow a custom Blade template to be used.
 
 extends: my-custom-layout
-Markdown content here
-
 Lorem Ipsum Dolor Sit Amet.
 
-...
-                </p>
-            </article>
+Implementation is simple by adding the ...
+    </p>
+</article>
                     <article>
-                <header>
-                    <a href="rfc/1590.html">
-                        <h2>RFC 1590: Dynamic markdown links</h2>
-                    </a>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Author:</th><td>Caen De Silva</td>
-                                <th>Status:</th><td>Draft</td>
-                                <th>Type:</th><td>Pull Request</td>
-                                <td><a href="rfc/1590.html">View on GitHub</a></td>
-                            </tr>
-                            <tr>
-                                <th>Created:</th><td>2024-02-25 17:49:18</td>
-                                                                    <th>Updated:</th><td>2024-06-19 19:29:21</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </header>
-                <p>
-                    https://twitter.com/CodeWithCaen/status/1761810371063497098...
-                </p>
-            </article>
+    <header>
+        <a href="rfc/1590.html">
+            <h2>RFC 1590: Dynamic markdown links</h2>
+        </a>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Author:</strong> Caen De Silva
+                    </td>
+                    <td>
+                        <strong>Status:</strong> Draft
+
+                    </td>
+                    <td>
+                        <strong>Type:</strong> Pull Request
+                    </td>
+                    <td class="table-action"><a href="rfc/1590.html">View on GitHub</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Created:</strong> 2024-02-25 17:49:18
+                    </td>
+                                            <td>
+                            <strong>Updated:</strong> 2024-06-19 19:29:21
+                        </td>
+                                    </tr>
+            </tbody>
+        </table>
+    </header>
+    <p>
+        https://twitter.com/CodeWithCaen/status/1761810371063497098...
+    </p>
+</article>
                     <article>
-                <header>
-                    <a href="rfc/1734.html">
-                        <h2>RFC 1734: Should Includes helpers returning Html return HtmlStrings?</h2>
-                    </a>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Author:</th><td>Caen De Silva</td>
-                                <th>Status:</th><td>Implemented</td>
-                                <th>Type:</th><td>Issue</td>
-                                <td><a href="rfc/1734.html">View on GitHub</a></td>
-                            </tr>
-                            <tr>
-                                <th>Created:</th><td>2024-06-23 15:42:50</td>
-                                                                    <th>Updated:</th><td>2024-06-27 11:57:36</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </header>
-                <p>
-                    We have this class, where we document that &quot;Both Markdown and Blade includes will be rendered to HTML&quot;. Wouldn&#039;t it then make more sense if these returned HtmlString objects instead of string types?
+    <header>
+        <a href="rfc/1734.html">
+            <h2>RFC 1734: Should Includes helpers returning Html return HtmlStrings?</h2>
+        </a>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Author:</strong> Caen De Silva
+                    </td>
+                    <td>
+                        <strong>Status:</strong> Implemented
+
+                    </td>
+                    <td>
+                        <strong>Type:</strong> Issue
+                    </td>
+                    <td class="table-action"><a href="rfc/1734.html">View on GitHub</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Created:</strong> 2024-06-23 15:42:50
+                    </td>
+                                            <td>
+                            <strong>Updated:</strong> 2024-06-27 11:57:36
+                        </td>
+                                    </tr>
+            </tbody>
+        </table>
+    </header>
+    <p>
+        We have this class, where we document that &quot;Both Markdown and Blade includes will be rendered to HTML&quot;. Wouldn&#039;t it then make more sense if these returned HtmlString objects instead of string types?
 
 ...
-                </p>
-            </article>
+    </p>
+</article>
             </main>
 
 <footer class="text-center">
@@ -152,7 +179,7 @@ Lorem Ipsum Dolor Sit Amet.
     </p>
     <p class="print-only">
         <small>
-            Page generated at 2024-06-27 12:35:20 UTC<br>
+            Page generated at 2024-06-27 13:31:05 UTC<br>
             https://rfc.hydephp.com/index.html
         </small>
     </p>
