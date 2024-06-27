@@ -21,10 +21,15 @@ class FormatsRFCSummary
         $lines = explode("\n", trim($markdown));
 
         // Remove all headings
-        $lines = array_filter($lines, fn (string $line): bool => ! str_starts_with($line, '#'));
+        $lines = static::removeAllHeadings($lines);
 
         $markdown = implode("\n", $lines);
 
         return trim($markdown);
+    }
+
+    protected static function removeAllHeadings(array $lines): array
+    {
+        return array_filter($lines, fn (string $line): bool => ! str_starts_with($line, '#'));
     }
 }
