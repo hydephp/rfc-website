@@ -34,9 +34,7 @@ class RFCService
         // $discussions = GitHub::rawSearch('repo%3Ahydephp%2Fdevelop+rfc&type=discussions');
 
         // More efficient way to find the user data not included by search data, using unique users to reduce API calls.
-        $userCache = $this->getUserCache(array_unique([...Arr::pluck($issues['items'], 'user.login'), ...Arr::pluck($pulls['items'], 'user.login')]));
-        $userCache = Arr::keyBy($userCache, fn ($user) => $user['login']);
-        $this->userCache = $userCache;
+        $this->userCache = $this->makeUserCache($issues['items'], $pulls['items']);
 
         $issues = Arr::map($issues['items'], function (array $issue): Issue {
             return new Issue(
@@ -81,6 +79,13 @@ class RFCService
             Hyde::pages()->addPage($page);
             Hyde::routes()->addRoute($page->getRoute());
         });
+    }
+
+    protected function makeUserCache($issues, $pulls): array
+    {
+        $userCache = $this->getUserCache(array_unique([...Arr::pluck($issues, 'user.login'), ...Arr::pluck($pulls, 'user.login')]));
+
+        return Arr::keyBy($userCache, fn ($user) => $user['login']);
     }
 
     protected function getUserCache($usersToCache): array
