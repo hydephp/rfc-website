@@ -59,23 +59,13 @@ readonly class Issue
 
     public function __get(string $name)
     {
-        if ($name === 'created') {
-            return $this->createdAt->format(self::DATE_FORMAT);
-        }
-
-        if ($name === 'updated') {
-            return $this->updatedAt->format(self::DATE_FORMAT);
-        }
-
-        if ($name === 'prettyTitle') {
-            return $this->prettyTitle();
-        }
-
-        if ($name === 'link') {
-            return $this->link();
-        }
-
-        throw new Exception("Property '$name' does not exist in class ".__CLASS__);
+        return match ($name) {
+            'created' => $this->createdAt->format(self::DATE_FORMAT),
+            'updated' => $this->updatedAt->format(self::DATE_FORMAT),
+            'prettyTitle' => $this->prettyTitle(),
+            'link' => $this->link(),
+            default => throw new Exception("Property '$name' does not exist in class ".__CLASS__),
+        };
     }
 
     /**
