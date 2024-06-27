@@ -2,13 +2,12 @@
 
 namespace App\Providers;
 
-use Hyde\Hyde;
-use App\RFCService;
 use App\Helpers\SCSS;
-use Illuminate\Support\Arr;
+use App\RFCService;
+use Hyde\Hyde;
+use Illuminate\Cache\Console\ClearCommand;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Cache\Console\ClearCommand;
 
 class AppServiceProvider extends ServiceProvider
 {

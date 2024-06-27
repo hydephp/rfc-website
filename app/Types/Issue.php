@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Types;
 
-use Exception;
-use App\Helpers\GitHub;
 use App\Helpers\Generics;
+use App\Helpers\GitHub;
 use DateTimeImmutable;
-use Hyde\Support\Models\Route;
-use Hyde\Markdown\Models\Markdown;
+use Exception;
 use Hyde\Framework\Actions\ConvertsMarkdownToPlainText;
+use Hyde\Markdown\Models\Markdown;
+use Hyde\Support\Models\Route;
 
 /**
  * Represent a GitHub Issue, which can be an Issue or a Pull Request.
@@ -102,7 +102,7 @@ readonly class Issue
 
     protected function link(): Route
     {
-         return route("rfc/$this->number");
+        return route("rfc/$this->number");
     }
 
     private function trimTitleAffixes(): string

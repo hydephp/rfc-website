@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App;
 
-use Carbon\Carbon;
-use App\Types\Issue;
 use App\Types\GitHubUser;
+use App\Types\Issue;
+use Carbon\Carbon;
 use Hyde\Pages\MarkdownPage;
 use Illuminate\Support\HtmlString;
 
@@ -42,6 +42,6 @@ class RFCPage extends MarkdownPage
 
     public function formatDate(Carbon $carbon): HtmlString
     {
-        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>',$carbon->format('F j, Y'), $carbon->format('H:i A')));
+        return new HtmlString(sprintf('%s <span class="text-muted">%s</span>', $carbon->format('F j, Y'), $carbon->format('H:i A')));
     }
 }

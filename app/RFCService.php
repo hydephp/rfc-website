@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App;
 
-use Hyde\Hyde;
+use App\Helpers\GitHub;
+use App\Types\GitHubUser;
 use App\Types\Issue;
+use App\Types\IssueList;
+use App\Types\IssueType;
 use App\Types\Status;
 use DateTimeImmutable;
-use App\Helpers\GitHub;
-use App\Types\IssueType;
-use App\Types\IssueList;
-use App\Types\GitHubUser;
-use Illuminate\Support\Arr;
+use Hyde\Hyde;
 use Hyde\Markdown\Models\Markdown;
+use Illuminate\Support\Arr;
 
 class RFCService
 {
