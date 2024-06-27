@@ -9,7 +9,7 @@ use App\Helpers\Generics;
 use App\Helpers\GitHub;
 use DateTimeImmutable;
 use Exception;
-use Hyde\Framework\Actions\ConvertsMarkdownToPlainText;
+use App\Actions\FormatsRFCSummary;
 use Hyde\Markdown\Models\Markdown;
 use Hyde\Support\Models\Route;
 
@@ -85,22 +85,7 @@ readonly class Issue
 
     public function summary(): string
     {
-        $markdown = $this->preprocessSummary($this->body->body());
-        $body = (new ConvertsMarkdownToPlainText($markdown))->execute();
-
-        return substr($body, 0, 200).'...';
-    }
-
-    protected function preprocessSummary(string $markdown): string
-    {
-        $lines = explode("\n", trim($markdown));
-
-        // Remove all headings
-        $lines = array_filter($lines, fn (string $line): bool => ! str_starts_with($line, '#'));
-
-        $markdown = implode("\n", $lines);
-
-        return trim($markdown);
+        return FormatsRFCSummary::handle($this->body->body());
     }
 
     protected function link(): Route
