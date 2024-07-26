@@ -51,13 +51,54 @@
                                                     <span title="This user is verified to be part of the HydePHP organization." class="no-print">✅</span>
                                                 <br>
                         <time datetime="2024-02-25 17:49:18 UTC" title="2024-02-25 17:49:18 UTC"><b>Created:</b> February 25, 2024 <span class="text-muted">17:49 PM</span></time>
-                                                    &middot; <time datetime="2024-07-24 19:18:43 UTC" title="2024-07-24 19:18:43 UTC"><b>Updated:</b> July 24, 2024 <span class="text-muted">19:18 PM</span></time>
+                                                    &middot; <time datetime="2024-07-25 16:20:12 UTC" title="2024-07-25 16:20:12 UTC"><b>Updated:</b> July 25, 2024 <span class="text-muted">16:20 PM</span></time>
                                             </p>
                 </fieldset>
             </header>
             <fieldset>
                 <legend>Abstract</legend>
-                <p><a href="https://twitter.com/CodeWithCaen/status/1761810371063497098">https://twitter.com/CodeWithCaen/status/1761810371063497098</a></p>
+                <h2>Dynamic Markdown Links</h2>
+<h2>PR Abstract</h2>
+<p>Based on <a href="https://rfc.hydephp.com/rfc/1590.html">RFC 1590</a> proposed in <a href="https://twitter.com/CodeWithCaen/status/1761810371063497098">https://twitter.com/CodeWithCaen/status/1761810371063497098</a></p>
+<h2>Overview</h2>
+<p>HydePHP provides a powerful feature for automatically converting Markdown links to source files to the corresponding routes in the built site.</p>
+<p>This allows for much better writing experience when using an IDE, as you can easily navigate to the source file by clicking on the link.</p>
+<h2>Usage</h2>
+<p>Using the feature is simple: Just use source file paths for links:</p>
+<pre><code class="language-markdown">[Home](/_pages/index.blade.php)
+![Logo](/_media/logo.svg)
+</code></pre>
+<p>As you can see, it works for both pages and media assets. The leading slash is optional and will be ignored by Hyde, but including it often gives better IDE support.</p>
+<h3>Behind the Scenes</h3>
+<p>During the build process, HydePHP converts source paths to their corresponding routes, and evaluates them depending on the page being rendered.</p>
+<p>If your page is in the site root then:</p>
+<ul>
+<li>
+<code>/_pages/index.blade.php</code> becomes <code>index.html</code>
+</li>
+<li>
+<code>/_media/logo.svg</code> becomes <code>media/logo.svg</code>
+</li>
+</ul>
+<p>If your page is in a subdirectory then:</p>
+<ul>
+<li>
+<code>/_pages/index.blade.php</code> becomes <code>../index.html</code>
+</li>
+<li>
+<code>/_media/logo.svg</code> becomes <code>../media/logo.svg</code>
+</li>
+</ul>
+<p>Of course, if your page is in a more deeply nested directory, the number of <code>../</code> will increase accordingly.</p>
+<p>We will of course also match your configured preference for <code>pretty_urls</code> and only include the <code>.html</code> extension when desired.</p>
+<h3>Limitations</h3>
+<p>There are some limitations and considerations to keep in mind when using this feature:</p>
+<ul>
+<li>This feature won't work for dynamic routes (not backed by a file)</li>
+<li>If you rename a file, links will break. Your IDE may warn about this.</li>
+<li>If a file is not found, we won't be able to see it when evaluating links.</li>
+<li>Relative links are not supported (so ../_pages/index.blade.php won't work)</li>
+</ul>
 
             </fieldset>
         </article>
@@ -79,7 +120,7 @@
     </p>
     <p class="print-only">
         <small>
-            Page generated at 2024-07-25 02:34:23 UTC<br>
+            Page generated at 2024-07-26 02:34:16 UTC<br>
             https://rfc.hydephp.com/rfc/1590.html
         </small>
     </p>
